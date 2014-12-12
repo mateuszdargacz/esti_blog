@@ -62,7 +62,6 @@ def blog_post_list(request, tag=None, year=None, month=None, username=None,
                "tag": tag, "category": category, "author": author,
                "blog_posts_feature" : blog_posts_feature})
 
-
     templates.append(template)
     return render(request, templates, context)
 

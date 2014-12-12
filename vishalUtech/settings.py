@@ -73,7 +73,7 @@ from __future__ import absolute_import, unicode_literals
 
 # Setting to turn on featured images for pages posts. Defaults to False.
 #
-# BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the south application will be automatically added to the
 # INSTALLED_APPS setting.
@@ -315,7 +315,6 @@ OPTIONAL_APPS = (
 
 # These settings are used by the default fabfile.py provided.
 # Check fabfile.py for defaults.
-
 # FABRIC = {
 #     "SSH_USER": "", # SSH username for host deploying to
 #     "HOSTS": ALLOWED_HOSTS[:1], # List of hosts to deploy to (eg, first host)
@@ -333,8 +332,7 @@ OPTIONAL_APPS = (
 # }
 
 SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
-BLOG_USE_FEATURED_IMAGE = True
-RANDOM_POST_AMOUNT = 1
+RANDOM_POST_AMOUNT = 5
 
 ##################
 # LOCAL SETTINGS #

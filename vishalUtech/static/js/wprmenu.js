@@ -13,12 +13,6 @@ jQuery(document).ready(function(e) {
         h = i.width(),
         p = window.innerHeight < u.height() ? u.height() : window.innerHeight,
         d = window.innerWidth < u.width() ? u.width() : window.innerWidth;
-    console.log('wprmenu_bar', $("#wprmenu_bar").length);
-    console.log('wprmenu_menu', $("#wprmenu_menu").length);
-    console.log('wprmenu_menu_ul', $("#wprmenu_menu_ul").length);
-    console.log('wpadminbar', $("#wpadminbar").length);
-    console.log(p, d, c);
-
     if (c) {
         s.find("li").first().css({
             "border-top": "none"
@@ -37,7 +31,6 @@ jQuery(document).ready(function(e) {
             n.addClass("wprmenu_parent_item");
             r.addClass("wprmenu_parent_item_li");
             var s = n.before('<span class="wprmenu_icon wprmenu_icon_par icon_default ' + i.attr("data-custom_icon") + '"></span> ').find(".wprmenu_icon_par");
-            console.log('sss', n)
             t.hide()
         });
 
@@ -59,7 +52,6 @@ jQuery(document).ready(function(e) {
         e(".wprmenu_icon_par").on("click", function() {
             var t = e(this),
                 n = t.parent("li").find("ul.sub-menu").first();
-            alert()
             n.slideToggle(300);
             t.toggleClass("wprmenu_par_opened");
             if (i.attr("data-custom_icon") != "") t.toggleClass(i.attr("data-custom_icon_open"));
