@@ -55,7 +55,7 @@ urlpatterns += patterns('',
     # ``settings.py`` module, and delete the blog page object from the
     # page tree in the admin if it was installed.
 
-    url("^$", "mezzanine.blog.views.blog_post_list", name="home"),
+    url("^$", "vishalUtech.blog.views.blog_post_list", name="home"),
 
     # MEZZANINE'S URLS
     # ----------------

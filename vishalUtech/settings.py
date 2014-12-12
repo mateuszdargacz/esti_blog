@@ -14,7 +14,7 @@ from __future__ import absolute_import, unicode_literals
 # Controls the ordering and grouping of the admin menu.
 #
 # ADMIN_MENU_ORDER = (
-#     ("Content", ("pages.Page", "blog.BlogPost",
+#     ("Content", ("pages.Page", "pages.BlogPost",
 #        "generic.ThreadedComment", ("Media Library", "fb_browse"),)),
 #     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
 #     ("Users", ("auth.User", "auth.Group",)),
@@ -54,13 +54,13 @@ from __future__ import absolute_import, unicode_literals
 # EXTRA_MODEL_FIELDS = (
 #     (
 #         # Dotted path to field.
-#         "mezzanine.blog.models.BlogPost.image",
+#         "mezzanine.pages.models.BlogPost.image",
 #         # Dotted path to field class.
 #         "somelib.fields.ImageField",
 #         # Positional args for field class.
 #         ("Image",),
 #         # Keyword args for field class.
-#         {"blank": True, "upload_to": "blog"},
+#         {"blank": True, "upload_to": "pages"},
 #     ),
 #     # Example of adding a field to *all* of Mezzanine's content types:
 #     (
@@ -71,7 +71,7 @@ from __future__ import absolute_import, unicode_literals
 #     ),
 # )
 
-# Setting to turn on featured images for blog posts. Defaults to False.
+# Setting to turn on featured images for pages posts. Defaults to False.
 #
 # BLOG_USE_FEATURED_IMAGE = True
 
@@ -250,6 +250,7 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+    "vishalUtech.blog",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -304,7 +305,6 @@ OPTIONAL_APPS = (
     "debug_toolbar",
     "django_extensions",
     "compressor",
-    "vanilla",
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
@@ -333,6 +333,8 @@ OPTIONAL_APPS = (
 # }
 
 SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
+BLOG_USE_FEATURED_IMAGE = True
+RANDOM_POST_AMOUNT = 1
 
 ##################
 # LOCAL SETTINGS #
