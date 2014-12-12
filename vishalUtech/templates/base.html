@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n future staticfiles %}
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, maximum-scale=1, minimum-scale=1">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>
+        {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic' rel='stylesheet' type='text/css'>
+    {% ifinstalled mezzanine.blog %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
+
+    {% compress css %}
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+        <link rel="stylesheet" href="{% static "css/font-awesome.css" %}">
+        <link rel="stylesheet" href="{% static "css/generic-icons.css" %}">
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link rel="stylesheet" href="{% static "css/vishalsherer.css" %}">
+        <link rel="stylesheet" href="{% static "css/wprmenu.css" %}">
+            <style id="wprmenu_css" type="text/css">
+        /* apply appearance settings */
+        #wprmenu_bar {
+            background: #0D0D0D;
+        }
+
+        #wprmenu_bar .menu_title, #wprmenu_bar .wprmenu_icon_menu {
+            color: #F2F2F2;
+        }
+
+        #wprmenu_menu {
+            background: #2E2E2E !important;
+        }
+
+        #wprmenu_menu.wprmenu_levels ul li {
+            border-bottom: 1px solid #131212;
+            border-top: 1px solid #474747;
+        }
+
+        #wprmenu_menu ul li a {
+            color: #CFCFCF;
+        }
+
+        #wprmenu_menu ul li a:hover {
+            color: #606060;
+        }
+
+        #wprmenu_menu.wprmenu_levels a.wprmenu_parent_item {
+            border-left: 1px solid #474747;
+        }
+
+        #wprmenu_menu .wprmenu_icon_par {
+            color: #CFCFCF;
+        }
+
+        #wprmenu_menu .wprmenu_icon_par:hover {
+            color: #606060;
+        }
+
+        #wprmenu_menu.wprmenu_levels ul li ul {
+            border-top: 1px solid #131212;
+        }
+
+        #wprmenu_bar .wprmenu_ic span {
+            background:;
+        }
+
+        #wprmenu_menu.left {
+            width: 50%;
+            left: -50%;
+            right: auto;
+        }
+
+        #wprmenu_menu.right {
+            width: 50%;
+            right: -50%;
+            left: auto;
+        }
+
+        /* show the bar and hide othere navigation elements */
+        @media only screen and (max-width: 768px) {
+            html {
+                padding-top: 42px !important;
+            }
+
+            #wprmenu_bar {
+                display: block !important;
+            } {
+            display: none !important;
+        }
+        }
+
+        /* hide the bar & the menu */
+        @media only screen and (min-width: 769px) {
+        }
+    </style>
+    <style type="text/css" id="twentythirteen-header-css">
+        .site-header {
+            background: url(http://demo.themingstrap.com/mashthirteen/wp-content/themes/twentythirteen/images/headers/circle.png) no-repeat scroll top;
+            background-size: 1600px auto;
+        }
+    </style>
+        {% if LANGUAGE_BIDI %}
+            <link rel="stylesheet" href="{% static "css/rtl.css" %}">
+        {% endif %}
+        {% ifinstalled cartridge.shop %}
+            <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+            {% if LANGUAGE_BIDI %}
+                <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+            {% endif %}
+        {% endifinstalled %}
+        {% block extra_css %}{% endblock %}
+    {% endcompress %}
+
+
+    <!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body id="{% block body_id %}body{% endblock %}" class="home blog single-author sidebar">
+<div id="page" class="hfeed site-boxed">
+    <header id="masthead" class="site-header" role="banner">
+        {% include 'partials/nav_bar.html' %}
+    </header>
+    <div id="maincontainer" class="row">
+        {#GOOGLE ADS#}
+        <div class="headeradcont">
+            <div class="headerad">
+                <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- forovtop -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-4269944909786602"
+                     data-ad-slot="2232694264"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        {#END GOOGLE ADS#}
+
+        {% nevercache %}
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endnevercache %}
+
+
+
+        <div id="primary" class="col-md-9">
+                {% block main %}{% endblock %}
+
+        </div>
+
+        <div id="tertiary" class="col-md-3" role="complementary">
+            {% include 'partials/tertiary_side_bar.html' %}
+        </div>
+    </div>
+
+    <!-- #footer -->
+    {% include "partials/footer.html" %}
+
+    {% include "includes/footer_scripts.html" %}
+</div>
+
+
+<div id="wprmenu_bar" class="wprmenu_bar" data-from_width="768">
+    <div class="wprmenu_ic">
+        <span class="wprmenu_ic_1"></span>
+        <span class="wprmenu_ic_2"></span>
+        <span class="wprmenu_ic_3"></span>
+    </div>
+    <div class="menu_title">
+        MENU
+    </div>
+</div>
+
+
+<div id="wprmenu_menu" class="wprmenu_levels left " data-custom_icon="" data-custom_icon_open="" data-zooming="no">
+    <ul id="wprmenu_menu_ul">
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-214"><a
+                href="http://demo.themingstrap.com/mashthirteen/category/business/">Business</a></li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category current-menu-ancestor current-menu-parent menu-item-has-children menu-item-219">
+            <a href="http://demo.themingstrap.com/mashthirteen/category/lifestyle/">Lifestyle</a>
+            <ul class="sub-menu">
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-225"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/arts-entertainment/">Arts &#038;
+                    Entertainment</a></li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-224"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/foods-cuisine/">Foods &#038;
+                    Cuisine</a></li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category current-menu-item menu-item-230">
+                    <a href="http://demo.themingstrap.com/mashthirteen/category/health-tips-2/">Health Tips</a></li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-218"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/yoga-fitness/">Yoga &#038; Fitness</a>
+                </li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-217"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/relationships-family/">Relationships
+                    &#038; Family</a></li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-223"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/career/">Career</a></li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-215"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/holidays-celebrations/">Holidays &#038;
+                    Celebrations</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-227"><a
+                href="http://demo.themingstrap.com/mashthirteen/category/internet-technology/">Internet &#038;
+            Technology</a>
+            <ul class="sub-menu">
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-216"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/mobile/">Mobile</a></li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-226"><a
+                        href="http://demo.themingstrap.com/mashthirteen/category/gadgets-and-electronics/">Gadgets and
+                    electronics</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a
+                href="http://demo.themingstrap.com/mashthirteen/disclaimer/">Disclaimer</a></li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a
+                href="http://demo.themingstrap.com/mashthirteen/privacy-policy/">Privacy Policy</a></li>
+    </ul>
+</div>
+{% compress js %}
+    <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/bootstrap-extras.js" %}"></script>
+    <script src="{% static "js/bootstrap-shortcodes.js" %}"></script>
+    <script src="{% static "js/functions.js" %}"></script>
+    <script src="{% static "js/jquery.bxslider.js" %}"></script>
+    <script src="{% static "js/jquery.sidr.js" %}"></script>
+    <script src="{% static "js/jquery.transit.js" %}"></script>
+    <script src="{% static "js/jquery-migrate.min.js" %}"></script>
+    <script src="{% static "js/masonry.min.js" %}"></script>
+    <script src="{% static "js/jquery.masonry.min.js" %}"></script>
+    <script src="{% static "js/vishalsharer.js" %}"></script>
+    <script src="{% static "js/wprmenu.js" %}"></script>
+    {% block extra_js %}{% endblock %}
+{% endcompress %}
+</body>
+</html>
+

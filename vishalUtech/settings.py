@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
-######################
+# #####################
 # MEZZANINE SETTINGS #
 ######################
 
@@ -150,7 +150,7 @@ AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # The numeric mode to set newly-uploaded files to. The value should be
@@ -299,9 +299,9 @@ PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
 #########################
 # OPTIONAL APPLICATIONS #
 #########################
-
 # These will be added to ``INSTALLED_APPS``, only if available.
 OPTIONAL_APPS = (
+    "debug_toolbar",
     "django_extensions",
     "compressor",
     "vanilla",
@@ -343,7 +343,6 @@ SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
 # defined per machine.
 try:
     from .local_settings import *
-    print DATABASES
 except ImportError as e:
     if "local_settings" not in str(e):
         raise e
