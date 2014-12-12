@@ -75,7 +75,7 @@
         {% endif %}
         {% for blog_post in blog_posts.object_list %}
             <article id="post-{{ blog_post.pk }}" class="post-{{ blog_post.pk }} post">
-
+                <div class="post-thumbnail home-page-thumb">
                 {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
                     {% block blog_post_list_post_featured_image %}
                         <a href="{{ blog_post.get_absolute_url }}">
@@ -84,6 +84,7 @@
                         </a>
                     {% endblock %}
                 {% endif %}
+                </div>
                 <header class="post-header">
                     {% block blog_post_list_post_metainfo %}
                         {% editable blog_post.publish_date %}
@@ -119,7 +120,6 @@
                 {% endblock %}
 
                 {% block blog_post_list_post_links %}
-                    <div class="blog-list-detail">
                         {% keywords_for blog_post as tags %}
                         {% if tags %}
                             <ul class="list-inline tags">
@@ -132,7 +132,7 @@
                                 {% endspaceless %}
                             </ul>
                         {% endif %}
-                        <p>
+                        <footer class="entry-meta">
                             {% if blog_post.allow_comments %}
 
                                 {% if settings.COMMENTS_DISQUS_SHORTNAME %}
@@ -141,15 +141,18 @@
                                         {% trans "Comments" %}
                                     </a>
                                 {% else %}
-                                    <a href="{{ blog_post.get_absolute_url }}#comments">
-                                        {% blocktrans count comments_count=blog_post.comments_count %}
-                                            {{ comments_count }}
-                                            comment{% plural %}{{ comments_count }} comments{% endblocktrans %}
-                                    </a>
+                                    <div class="comments-link">
+                                        <a href="{{ blog_post.get_absolute_url }}#comments">
+                                        <span class="leave-reply">
+                                            {% blocktrans  %}
+                                               Leave a comment
+                                            {% endblocktrans %}
+                                        </span>
+                                        </a>
+                                    </div>
                                 {% endif %}
                             {% endif %}
-                        </p>
-                    </div>
+                        </footer>
                 {% endblock %}
             </article>
         {% endfor %}
@@ -204,7 +207,7 @@
             {% endfor %}
         {% endblock %}
 
-            <!-- .entry-header -->
+        <!-- .entry-header -->
     </div>
 {% endblock %}
 
