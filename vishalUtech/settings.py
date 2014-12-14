@@ -251,6 +251,7 @@ INSTALLED_APPS = (
     #"mezzanine.accounts",
     #"mezzanine.mobile",
     "vishalUtech.blog",
+    "south",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -309,6 +310,20 @@ OPTIONAL_APPS = (
     PACKAGE_NAME_GRAPPELLI,
 )
 
+####################
+# MODELs EXTENSION #
+####################
+
+EXTRA_MODEL_FIELDS = (
+    (
+        "mezzanine.blog.models.BlogPost.views_count",
+        "IntegerField", #django.db.models.
+        ("Views count",),
+        {"default": 0,
+         },
+    ),
+)
+
 ###################
 # DEPLOY SETTINGS #
 ###################
@@ -333,6 +348,9 @@ OPTIONAL_APPS = (
 
 SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
 RANDOM_POST_AMOUNT = 5
+
+
+
 
 ##################
 # LOCAL SETTINGS #
