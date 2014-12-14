@@ -251,7 +251,6 @@ INSTALLED_APPS = (
     #"mezzanine.accounts",
     #"mezzanine.mobile",
     "vishalUtech.blog",
-    "south",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -306,6 +305,7 @@ OPTIONAL_APPS = (
     "debug_toolbar",
     "django_extensions",
     "compressor",
+    "south",
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
