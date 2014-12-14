@@ -161,11 +161,11 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 #############
 # DATABASES #
 #############
-
+COMMENTS_USE_RATINGS =False
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
         "NAME": "",
         # Not used with sqlite3.

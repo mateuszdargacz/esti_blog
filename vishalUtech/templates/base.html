@@ -10,7 +10,10 @@
     <title>
         {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
     <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
+
     {% ifinstalled mezzanine.blog %}
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
         <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
@@ -25,88 +28,88 @@
         <link rel="stylesheet" href="{% static "css/style.css" %}">
         <link rel="stylesheet" href="{% static "css/vishalsherer.css" %}">
         <link rel="stylesheet" href="{% static "css/wprmenu.css" %}">
-            <style id="wprmenu_css" type="text/css">
-        /* apply appearance settings */
-        #wprmenu_bar {
-            background: #0D0D0D;
-        }
-
-        #wprmenu_bar .menu_title, #wprmenu_bar .wprmenu_icon_menu {
-            color: #F2F2F2;
-        }
-
-        #wprmenu_menu {
-            background: #2E2E2E !important;
-        }
-
-        #wprmenu_menu.wprmenu_levels ul li {
-            border-bottom: 1px solid #131212;
-            border-top: 1px solid #474747;
-        }
-
-        #wprmenu_menu ul li a {
-            color: #CFCFCF;
-        }
-
-        #wprmenu_menu ul li a:hover {
-            color: #606060;
-        }
-
-        #wprmenu_menu.wprmenu_levels a.wprmenu_parent_item {
-            border-left: 1px solid #474747;
-        }
-
-        #wprmenu_menu .wprmenu_icon_par {
-            color: #CFCFCF;
-        }
-
-        #wprmenu_menu .wprmenu_icon_par:hover {
-            color: #606060;
-        }
-
-        #wprmenu_menu.wprmenu_levels ul li ul {
-            border-top: 1px solid #131212;
-        }
-
-        #wprmenu_bar .wprmenu_ic span {
-            background:;
-        }
-
-        #wprmenu_menu.left {
-            width: 50%;
-            left: -50%;
-            right: auto;
-        }
-
-        #wprmenu_menu.right {
-            width: 50%;
-            right: -50%;
-            left: auto;
-        }
-
-        /* show the bar and hide othere navigation elements */
-        @media only screen and (max-width: 768px) {
-            html {
-                padding-top: 42px !important;
+        <style id="wprmenu_css" type="text/css">
+            /* apply appearance settings */
+            #wprmenu_bar {
+                background: #0D0D0D;
             }
 
-            #wprmenu_bar {
-                display: block !important;
-            } {
-            display: none !important;
-        }
-        }
+            #wprmenu_bar .menu_title, #wprmenu_bar .wprmenu_icon_menu {
+                color: #F2F2F2;
+            }
 
-        /* hide the bar & the menu */
-        @media only screen and (min-width: 769px) {
-        }
-    </style>
-    <style type="text/css" id="twentythirteen-header-css">
-        .site-header {
-            background: url(http://demo.themingstrap.com/mashthirteen/wp-content/themes/twentythirteen/images/headers/circle.png) no-repeat scroll top;
-            background-size: 1600px auto;
-        }
-    </style>
+            #wprmenu_menu {
+                background: #2E2E2E !important;
+            }
+
+            #wprmenu_menu.wprmenu_levels ul li {
+                border-bottom: 1px solid #131212;
+                border-top: 1px solid #474747;
+            }
+
+            #wprmenu_menu ul li a {
+                color: #CFCFCF;
+            }
+
+            #wprmenu_menu ul li a:hover {
+                color: #606060;
+            }
+
+            #wprmenu_menu.wprmenu_levels a.wprmenu_parent_item {
+                border-left: 1px solid #474747;
+            }
+
+            #wprmenu_menu .wprmenu_icon_par {
+                color: #CFCFCF;
+            }
+
+            #wprmenu_menu .wprmenu_icon_par:hover {
+                color: #606060;
+            }
+
+            #wprmenu_menu.wprmenu_levels ul li ul {
+                border-top: 1px solid #131212;
+            }
+
+            #wprmenu_bar .wprmenu_ic span {
+                background: none;
+            }
+
+            #wprmenu_menu.left {
+                width: 50%;
+                left: -50%;
+                right: auto;
+            }
+
+            #wprmenu_menu.right {
+                width: 50%;
+                right: -50%;
+                left: auto;
+            }
+
+            /* show the bar and hide othere navigation elements */
+            @media only screen and (max-width: 768px) {
+                html {
+                    padding-top: 42px !important;
+                }
+
+                #wprmenu_bar {
+                    display: block !important;
+                } {
+                display: none !important;
+            }
+            }
+
+            /* hide the bar & the menu */
+            @media only screen and (min-width: 769px) {
+            }
+        </style>
+        <style type="text/css" id="twentythirteen-header-css">
+            .site-header {
+                background: url(http://demo.themingstrap.com/mashthirteen/wp-content/themes/twentythirteen/images/headers/circle.png) no-repeat scroll top;
+                background-size: 1600px auto;
+            }
+        </style>
         {% if LANGUAGE_BIDI %}
             <link rel="stylesheet" href="{% static "css/rtl.css" %}">
         {% endif %}
@@ -163,13 +166,7 @@
             {% endif %}
         {% endnevercache %}
 
-
-
-        <div id="primary" class="col-md-9">
-            {% block main %}{% endblock %}
-
-
-        </div>
+        {% block main %}{% endblock %}
 
         <div id="tertiary" class="col-md-3" role="complementary">
             {% include 'partials/tertiary_side_bar.html' %}

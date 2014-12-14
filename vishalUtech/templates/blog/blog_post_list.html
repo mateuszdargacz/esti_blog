@@ -41,9 +41,10 @@
 {% endblock %}
 
 {% block main %}
+    <div id="primary" class="col-md-9">
     <div class="post-headline">
-        <div class="randdm">What is feature?</div>
-        What is New?
+        <div class="randdm"> Trending Now</div>
+        Most Popular
     </div>
     <div class="col-md-8 entrypart" role="main">
         {% if tag or category or year or month or author %}
@@ -114,9 +115,11 @@
                     {% endblock %}
                 </header>
                 {% block blog_post_list_post_content %}
+                    <div class="post-content">
                     {% editable blog_post.content %}
                         {{ blog_post.description_from_content|safe }}
                     {% endeditable %}
+                    </div>
                 {% endblock %}
 
                 {% block blog_post_list_post_links %}
@@ -208,6 +211,7 @@
         {% endblock %}
 
         <!-- .entry-header -->
+    </div>
     </div>
 {% endblock %}
 

@@ -1745,7 +1745,12 @@ footer.entry-meta {
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
+
 }
+
+/*.comments-title h2{*/
+    /*font-weight: 300!important;*/
+/*}*/
 
 .sidebar .comments-title,
 .sidebar .comment-list,
@@ -1794,6 +1799,12 @@ footer.entry-meta {
 .comment-author {
 	float: left;
 	max-width: 74px;
+    border: none;
+    box-shadow: none;
+    background-color: #FFFFFF;
+    padding: 0;
+
+
 }
 
 .comment-author .avatar {
@@ -1855,6 +1866,10 @@ footer.entry-meta {
 .comment-meta a {
 	color: #a2a2a2;
 	font-size: 13px;
+    background-color: #FFFFFF;
+    border-top: none;
+    margin-top: 0;
+    padding: 0;
 }
 
 .comment-meta a:hover {
@@ -1932,16 +1947,16 @@ code {
 	margin-bottom: 15px;
 }
 
-.comment-form .comment-form-author,
-.comment-form .comment-form-email,
-.comment-form .comment-form-url {
+.comment-form .comment-form-id_name,
+.comment-form .comment-form-id_email,
+.comment-form .comment-form-id_url {
 	margin-bottom: 8px;
 }
 
-.comment-form [for="author"],
-.comment-form [for="email"],
-.comment-form [for="url"],
-.comment-form [for="comment"] {
+.comment-form [for="id_name"],
+.comment-form [for="id_email"],
+.comment-form [for="id_url"],
+.comment-form [for="id_comment"] {
 	float: left;
 	padding: 5px 0;
 	width: 120px;
@@ -2914,7 +2929,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .entrypart article footer.entry-meta {
 	padding: 5px 15px 20px 15px;
-	margin: 0px;
+	margin: 0;
+    background-color: inherit;
+    border: none;
 }
 .randomposts {
 	background: #fff;
@@ -3397,6 +3414,8 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 5px;
 	background: #ecf0f1;
 	margin-right: 10px;
+    width: 604px;
+    height: 270px;
 }
 .widget_my_popula_posts  ul li h3 {
 	font-size: 15px;

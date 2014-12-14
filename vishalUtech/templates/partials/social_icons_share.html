@@ -1,0 +1,26 @@
+{% load i18n  mezzanine_tags %}
+{% block blog_post_detail_sharebuttons %}
+    {% set_short_url_for blog_post %}
+    <div class="vishalsherer-box">
+        <div class="vishalsherer-buttons">
+            <a class="facebook"
+               onclick="javascript:mashFbSharrer('{{ blog_post.short_url|urlencode }}%20{{ blog_post.title|urlencode }}','{{ blog_post.title }}', '{{ blog_post.content|slice:":128" }}','{{ blog_post.featured_image.url }}',520,350)"
+               href="javascript:return(0);"><i class="fa fa-facebook"></i></a>
+            <a class="twitter"
+               onclick="javascript:mashTwSharrer('{{ blog_post.short_url|urlencode }}%20{{ blog_post.title|urlencode }}', '{{ blog_post.content|slice:":128"|striptags }}','{{ blog_post.featured_image.url }}', 520, 350)"
+            "="" href="javascript:return(0)"><i class="fa fa-twitter"></i></a>
+
+            <a class="gplus"
+               onclick="javascript:mashGpSharrer('{{ blog_post.short_url|urlencode }}%20{{ blog_post.title|urlencode }}', '{{ blog_post.content|slice:":128"|striptags }}','{{ blog_post.featured_image.url }}', 520, 350)"
+            "="" href="javascript:return(0)"><i class="fa fa-google-plus"></i></a>
+
+            <a class="linkdeni"
+               onclick="javascript:mashLdSharrer('{{ blog_post.short_url|urlencode }}%20{{ blog_post.title|urlencode }}', '{{ blog_post.content|slice:":128"|striptags }}','{{ blog_post.featured_image.url }}', 520, 350)"
+            "="" href="javascript:return(0)"><i class="fa fa-linkedin"></i></a>
+
+            <a class="pinterest"
+               onclick="javascript:mashPiSharrer('{{ blog_post.short_url|urlencode }}%20{{ blog_post.title|urlencode }}', '{{ blog_post.title }}', '{{ blog_post.content|slice:":128"|striptags }}','{{ blog_post.featured_image.url }}', 520, 350)"
+            "="" href="javascript:return(0)"><i class="fa fa-pinterest "></i></a>
+        </div>
+    </div>
+{% endblock %}
