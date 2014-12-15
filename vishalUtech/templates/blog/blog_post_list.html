@@ -168,7 +168,7 @@
     </div>
     <div class="col-md-4 randomposts">
         {% block blog_post_list_post_title_featured %}
-            {% for blog_post in blog_posts_feature %}
+            {% for blog_post in blog_posts_top_week %}
                 <article id="post-{{ blog_post.pk }}" class="post-{{ blog_post.pk }} post">
                     {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
                         {% block blog_post_feature_list_post_featured_image %}
