@@ -1,3 +1,4 @@
+{% load i18n %}
 <footer id="colophon" class="site-footer" role="contentinfo">
         <div id="secondary" class="sidebar-container" role="complementary">
             <div class="widget-area">
@@ -64,7 +65,8 @@
                         <li><a href='http://demo.themingstrap.com/mashthirteen/2013/06/'>June 2013</a></li>
                     </ul>
                 </aside>
-                <aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>
+                <aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">{% trans "Categories" %}</h3>
+                    {% include 'pages/menus/footer_categories.html' %}
                     <ul>
 {#                        TODO CATEGORIES#}
                         <li class="cat-item cat-item-14"><a

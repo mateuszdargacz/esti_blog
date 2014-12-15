@@ -1,0 +1,14 @@
+{% load blog_tags %}
+
+<h1>{{  blog_categories }} !</h1>
+{% with blog_categories as categories %}
+    <ul>
+        {% for category in categories %}
+            <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                <a href="{% url "blog_post_list_category" category.slug %}">
+                    {{ category.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endwith %}

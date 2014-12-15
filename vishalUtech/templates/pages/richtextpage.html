@@ -1,0 +1,14 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags %}
+{% block main %}
+    <div id="primary" class="col-md-9">
+    <div class="col-md-12 pagecontent" role="main">
+    <div class="entry-content">
+    {{ block.super }}
+    {% editable page.richtextpage.content %}
+        {{ page.richtextpage.content|richtext_filters|safe }}
+    {% endeditable %}
+    </div>
+    </div>
+    </div>
+{% endblock %}

@@ -42,8 +42,6 @@
                             {% endif %}
                         </div>
                     </header>
-
-
                     {% block blog_post_detail_postedby %}
                         <div class="entry-meta">
                             {% editable blog_post.publish_date %}
@@ -140,6 +138,7 @@
                 {% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}
             {% endblock %}
         </div>
+    </div>
     </div>
     </div>
 {% endblock %}

@@ -250,7 +250,10 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+
+
     "vishalUtech.blog",
+    "vishalUtech.core",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -347,6 +350,7 @@ EXTRA_MODEL_FIELDS = (
 # }
 
 SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
+SITE_TITLE = "VishalUtech"
 RANDOM_POST_AMOUNT = 5
 
 

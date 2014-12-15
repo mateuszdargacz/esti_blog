@@ -80,6 +80,7 @@ body {
 	margin: 0;
 	font-family: "Source Sans Pro", Helvetica, sans-serif !important;
 	font-size: 17px !important;
+    padding-top: 0;
 }
 
 a {
@@ -2151,6 +2152,9 @@ code {
 .site-footer .widget_calendar tbody td {
 	background-color: rgba(255, 255, 255, 0.05);
 }
+
+
+
 
 .widget_calendar tbody .pad, .site-footer .widget_calendar tbody .pad {
 	background-color: transparent;

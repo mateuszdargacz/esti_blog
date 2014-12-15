@@ -1,0 +1,11 @@
+{% load i18n %}
+{% load pages_tags %}
+{% for page in page_branch %}
+    {% if page.in_menu %}
+        <li id="primary-menu-{{ page.html_id }}"
+            class="{% if page.is_current_or_ascendant %}active{% endif %}{% if forloop.last %} last{% endif %}">
+            <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+<li class="divider-vertical"></li>

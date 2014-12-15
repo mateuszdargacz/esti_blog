@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load blog_tags %}
+{% load mezzanine_tags %}
+{% block blog_months %}
+    <h1>!!!</h1>
+    {% blog_months as months %}
+    {% if months %}
+        <h3>{% trans "Archive" %}</h3>
+        {% for month in months %}
+            <li>
+                <a href="{% url "blog_post_list_month" year=month.date.year month=month.date.month %}">
+                    {{ month.date|date:"F Y" }}
+                </a>
+            </li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

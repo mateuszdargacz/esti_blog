@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from mezzanine.conf import settings
 
 from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
@@ -18,6 +19,15 @@ urlpatterns = i18n_patterns("",
     # admin interface, which would be marginally more secure.
     ("^admin/", include(admin.site.urls)),
 )
+
+blog_installed = "vishalUtech.blog" in settings.INSTALLED_APPS
+if blog_installed:
+    BLOG_SLUG = settings.BLOG_SLUG.rstrip("/")
+
+    blog_patterns = patterns("",
+            ("^%s" % BLOG_SLUG, include("vishalUtech.blog.urls")),
+    )
+    urlpatterns += blog_patterns
 
 urlpatterns += patterns('',
 
@@ -68,6 +78,9 @@ urlpatterns += patterns('',
     # ``mezzanine.urls``, go right ahead and take the parts you want
     # from it, and use them directly below instead of using
     # ``mezzanine.urls``.
+    # MEZZANINE URLS OVERWITE
+
+    ("^blog/", include("mezzanine.urls")),
     ("^", include("mezzanine.urls")),
 
     # MOUNTING MEZZANINE UNDER A PREFIX
