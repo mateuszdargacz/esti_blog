@@ -45,9 +45,9 @@
                     {% block blog_post_detail_postedby %}
                         <div class="entry-meta">
                             {% editable blog_post.publish_date %}
-                                    <img alt=""
-                                         src="http:{% gravatar_url user.email %}"
-                                         class="avatar avatar-96 photo" height="96" width="96">
+                                <img alt=""
+                                     src="http:{% gravatar_url user.email %}"
+                                     class="avatar avatar-96 photo" height="96" width="96">
                                 <span>
                                     {% with blog_post.user as author %}
 
@@ -132,13 +132,12 @@
                                 </div>
                             {% endif %}
                     {% endblock %}
-                                        </div>
-
-            {% block blog_post_detail_comments %}
-                {% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}
-            {% endblock %}
+                </div>
+                {% block blog_post_detail_comments %}
+                    {% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}
+                {% endblock %}
+            </div>
         </div>
-    </div>
     </div>
     </div>
 {% endblock %}
