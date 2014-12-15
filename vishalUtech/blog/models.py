@@ -30,7 +30,7 @@ class BlogPostExtend:
         Returns views amount per day for post
         """
         diff = (datetime.now().date() - self.publish_date.date()).days
-        diff = diff if diff == 0 else 1
+        diff = 1 if diff == 0 else diff
 
         return int(self.views_count) / int(diff)
 
