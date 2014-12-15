@@ -14,7 +14,7 @@ class BlogPostManager(DisplayableManager):
         # return BlogPost.objects.filter(publish_date__gte=datetime.now()-timedelta(days=mdays)).order_by('ratio')
         # Sorted QuerySet by ratio propety from last [settings.TOP_POST_DAYS] days.:
         return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)),
-                      key=lambda a: a.ratio)
+                      key=lambda a: -a.ratio)
 
     def top_viewed(self):
         return sorted(BlogPost.objects.all(), key=lambda a: a.topviewed)
