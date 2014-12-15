@@ -13,10 +13,18 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.IntegerField')(default=0),
                       keep_default=False)
 
+        # Adding field 'BlogPost.views_count_delta'
+        db.add_column(u'blog_blogpost', u'views_count_delta',
+                      self.gf('django.db.models.fields.IntegerField')(default=0),
+                      keep_default=False)
+
 
     def backwards(self, orm):
         # Deleting field 'BlogPost.views_count'
         db.delete_column(u'blog_blogpost', u'views_count')
+
+        # Deleting field 'BlogPost.views_count_delta'
+        db.delete_column(u'blog_blogpost', u'views_count_delta')
 
 
     models = {
@@ -83,7 +91,8 @@ class Migration(SchemaMigration):
             'title': ('django.db.models.fields.CharField', [], {'max_length': '500'}),
             'updated': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'blogposts'", 'to': u"orm['auth.User']"}),
-            u'views_count': ('django.db.models.fields.IntegerField', [], {'default': '0'})
+            u'views_count': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+            u'views_count_delta': ('django.db.models.fields.IntegerField', [], {'default': '0'})
         },
         u'contenttypes.contenttype': {
             'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},

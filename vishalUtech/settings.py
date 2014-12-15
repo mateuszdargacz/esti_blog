@@ -325,6 +325,17 @@ EXTRA_MODEL_FIELDS = (
         {"default": 0,
          },
     ),
+
+    (
+        "mezzanine.blog.models.BlogPost.views_count_delta",
+        "IntegerField", #django.db.models.
+        ("Views count delta",),
+        {"default": 0,
+         "blank": False,
+         },
+    ),
+
+
 )
 
 ###################
@@ -350,8 +361,8 @@ EXTRA_MODEL_FIELDS = (
 # }
 
 SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
-SITE_TITLE = "VishalUtech"
 RANDOM_POST_AMOUNT = 5
+TOP_POST_DAYS = 7
 
 
 
