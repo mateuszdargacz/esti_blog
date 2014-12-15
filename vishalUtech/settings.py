@@ -374,7 +374,7 @@ TOP_POST_DAYS = 7
 # ignored in your version control system allowing for settings to be
 # defined per machine.
 try:
-    from .local_settings import *
+    from local_settings import *
 except ImportError as e:
     if "local_settings" not in str(e):
         raise e
