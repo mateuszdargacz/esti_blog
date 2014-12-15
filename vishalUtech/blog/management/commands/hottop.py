@@ -13,14 +13,13 @@ class Command(BaseCommand):
         blog_posts = BlogPost.objects.all()
         for bp in blog_posts:
             current = bp.views_count
-            delta = bp.views_count_delta
-            if delta==0:
-                delta = bp.views_count
-            before = current - delta
+            old = bp.views_count_delta
+            if old==0:
+                old = bp.views_count
+            inc = current - old
+            print current,old,'(',inc,')'
 
-            print current,delta,'(',before,')'
-
-            bp.views_count_delta = current - before
+            bp.views_count_delta = current
             bp.save()
         self.stdout.write("\nDone.\n" )
 

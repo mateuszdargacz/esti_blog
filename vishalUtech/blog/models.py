@@ -14,6 +14,9 @@ class BlogPostManager(DisplayableManager):
         return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)),
                       key=lambda a: a.ratio)
 
+    def top_viewed(self):
+        return sorted(BlogPost.objects.all(), key=lambda a: a.topviewed)
+
 
 class BlogPostExtend:
     objects = DisplayableManager()
@@ -22,10 +25,17 @@ class BlogPostExtend:
     @property
     def ratio(self):
         """
-        Returns post amount per day for post
+        Returns views amount per day for post
         """
         diff = (datetime.now().date() - self.publish_date.date()).days
         return int(self.views_count) / int(diff)
+
+    @property
+    def topviewed(self):
+        """
+        Returns top viewed post
+        """
+        return int(self.views_count)-int(self.views_count_delta)
 
 
 BlogPost.__bases__ += (BlogPostExtend,)

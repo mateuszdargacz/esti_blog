@@ -69,6 +69,7 @@ def blog_post_list(request, tag=None, year=None, month=None, username=None,
     ### Adding feature posts for main page, amount set in settings
     blog_posts_feature = blog_posts.order_by('?')[:settings.RANDOM_POST_AMOUNT]
     blog_posts_top_week= BlogPost.trends.last_days(settings.TOP_POST_DAYS)
+    blog_posts_top_viewed = BlogPost.trends.top_viewed()
     blog_posts = paginate(blog_posts, request.GET.get("page", 1),
                           settings.BLOG_POST_PER_PAGE,
                           settings.MAX_PAGING_LINKS)
