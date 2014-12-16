@@ -3418,17 +3418,15 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 5px;
 	background: #ecf0f1;
 	margin-right: 10px;
-    width: 604px;
-    height: 270px;
 }
 .widget_my_popula_posts  ul li h3 {
 	font-size: 15px;
 	clear: none;
-	margin: 0px;
+	margin: 0;
 }
 
 .widget_my_popula_posts  ul li {
-	padding: 10px 0px;
+	padding: 10px 0;
 	border-bottom: 1px solid #ecf0f1;
 	clear: left;
 }

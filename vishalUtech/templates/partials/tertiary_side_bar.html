@@ -1,36 +1,45 @@
+{% load mezzanine_tags %}
 <div class="sidebarheadline">What is next?</div>
-    <div class="sidebar-inner">
-        <div class="sidead">
-            <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- fornijukti -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:300px;height:250px"
-                 data-ad-client="ca-pub-4269944909786602"
-                 data-ad-slot="7867209062"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="widget-area">
-            <aside id="my_popula_posts-2" class="widget widget_my_popula_posts">
-                <h3 class="widget-title">Popular this week
-                </h3>
-{#                TODO POPULAR POSTS#}
-                <ul>
-                    <li>
-                        <a href="2013/08/06/pros-and-cons-of-long-distance-relationships/index.html"><img width="500"
-                                                                                                          height="270"
-                                                                                                          src="wp-content/uploads/sites/2/2013/08/long-distance-relationshi-500x270.jpg"
-                                                                                                          class="attachment-post-thumbnail wp-post-image"
-                                                                                                          alt="long-distance-relationshi"/></a>
-
-                        <h3><a href="2013/08/06/pros-and-cons-of-long-distance-relationships/index.html">Pros and Cons
-                            of Long Distance Relationships</a></h3>
-                        <span>06 Aug , 2013</span>
-                    </li>
-                </ul>
-            </aside>
-        </div>
-        <!-- .widget-area -->
+<div class="sidebar-inner">
+    <div class="sidead">
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- fornijukti -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-4269944909786602"
+             data-ad-slot="7867209062"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
+
+    <div class="widget-area">
+        <aside id="my_popula_posts-2" class="widget widget_my_popula_posts">
+            <h3 class="widget-title">Popular this week
+            </h3>
+            {% if blog_posts_top_week %}
+                <ul>
+                    {% for blog_post in blog_posts_top_week %}
+                        <li id="top_post-{{ blog_post.pk }}">
+                            {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+                                <a href="{{ blog_post.get_absolute_url }}">
+                                    <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 100 59 %}"
+                                         class="attachment-post-thumbnail wp-post-image"
+                                         alt="{{ blog_post.title }}"/>
+                                </a>
+                            {% endif %}
+                            <h3>
+                                <a href="{{ blog_post.get_absolute_url }}   ">
+                                    {{ blog_post.title }}
+                                </a>
+                            </h3>
+                            <span>{{ blog_post.publish_date|date:"d, M Y" }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+        </aside>
+    </div>
+    <!-- .widget-area -->
+</div>

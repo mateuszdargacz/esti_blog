@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.db.models import ForeignKey
 from mezzanine.blog.models import BlogPost, BlogCategory
@@ -13,11 +14,12 @@ class BlogPostManager(DisplayableManager):
     def last_days(self, mdays):
         # return BlogPost.objects.filter(publish_date__gte=datetime.now()-timedelta(days=mdays)).order_by('ratio')
         # Sorted QuerySet by ratio propety from last [settings.TOP_POST_DAYS] days.:
-        return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)),
+        return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays))[
+                      :settings.TOP_POST_DAYS_AMOUNT],
                       key=lambda a: -a.ratio)
 
     def top_viewed(self):
-        return sorted(BlogPost.objects.all(), key=lambda a: a.topviewed)
+        return sorted(BlogPost.objects.all()[:settings.TOP_VIEWED_AMOUNT], key=lambda a: -a.topviewed)
 
 
 class BlogPostExtend:

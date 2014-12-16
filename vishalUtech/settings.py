@@ -248,7 +248,7 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    "mezzanine.accounts",
+    # "mezzanine.accounts",
     #"mezzanine.mobile",
 
 
@@ -361,9 +361,10 @@ EXTRA_MODEL_FIELDS = (
 
 SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
 RANDOM_POST_AMOUNT = 5
+TOP_VIEWED_AMOUNT = 7
 TOP_POST_DAYS = 7
-
-
+TOP_POST_DAYS_AMOUNT = 10
+MAX_PAGING_LINKS = 7
 
 
 ##################
@@ -374,7 +375,7 @@ TOP_POST_DAYS = 7
 # ignored in your version control system allowing for settings to be
 # defined per machine.
 try:
-    from local_settings import *
+    from vishalUtech.local_settings import *
 except ImportError as e:
     if "local_settings" not in str(e):
         raise e

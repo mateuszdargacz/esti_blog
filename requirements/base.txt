@@ -5,3 +5,4 @@ Pillow==2.6.1
 django-compressor==1.4
 django-model-utils==2.2
 django-vanilla-views==1.0.3
+loremipsum
