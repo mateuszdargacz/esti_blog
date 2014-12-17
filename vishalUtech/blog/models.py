@@ -14,11 +14,21 @@ class BlogPostManager(DisplayableManager):
     def last_days(self, mdays):
         # return BlogPost.objects.filter(publish_date__gte=datetime.now()-timedelta(days=mdays)).order_by('ratio')
         # Sorted QuerySet by ratio propety from last [settings.TOP_POST_DAYS] days.:
-        return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays))[
-                      :settings.TOP_POST_DAYS_AMOUNT],
-                      key=lambda a: -a.ratio)
+        if mdays != 0:
+            # return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays))[
+            #               :settings.TOP_POST_DAYS_AMOUNT],
+            #               key=lambda a: -a.ratio)
+            return BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)).order_by('-views_count')
 
-    def top_viewed(self):
+        # Sorted QuerySet by ratio without day limit
+        else:
+            # return sorted(BlogPost.objects.filter()[
+            #               :settings.TOP_POST_DAYS_AMOUNT],
+            #               key=lambda a: -a.ratio)
+            return BlogPost.objects.filter().order_by('-views_count')
+
+
+    def trendingnow(self):
         return sorted(BlogPost.objects.all()[:settings.TOP_VIEWED_AMOUNT], key=lambda a: -a.topviewed)
 
 
