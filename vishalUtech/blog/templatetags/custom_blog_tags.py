@@ -32,6 +32,6 @@ def nested_blog_categories(*args):
 
 @register.assignment_tag
 def mosttly():
-    return BlogPost.trends.top_viewed()
+    return BlogPost.trends.trendingnow()
 
 
