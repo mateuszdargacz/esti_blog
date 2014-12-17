@@ -365,6 +365,15 @@ input[type="search"] {
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
+    border-width: 4px;
+}
+input[type="search"]:focus{
+        border-width: 4px;
+
+}
+input[type="search"]:hover{
+        border-width: 4px;
+
 }
 
 input[type="search"]::-webkit-search-decoration {
@@ -2094,6 +2103,9 @@ code {
 }
 
 /* Search widget */
+.navbar-form.navbar-right{
+    margin-right: 0;
+}
 .search-form .search-submit {
     display: none;
 }

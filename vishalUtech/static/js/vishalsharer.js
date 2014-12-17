@@ -1,7 +1,7 @@
 function mashFbSharrer(url, title, descr, image, winWidth, winHeight) {
 	var winTop = (screen.height / 2) - (winHeight / 2);
 	var winLeft = (screen.width / 2) - (winWidth / 2);
-    console.log('url', url);
+    alert(url);
     var url = 'index.html';
     console.log('title', title);
     console.log('descr', descr);

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from django.conf import settings
+
 __author__ = 'mateusz'
 __date__ = '14.12.14 / 17:01'
 __git__ = 'https://github.com/mateuszdargacz'
@@ -31,7 +33,11 @@ def nested_blog_categories(*args):
 
 
 @register.assignment_tag
-def mosttly():
-    return BlogPost.trends.trendingnow()
+def most_popular():
+    return BlogPost.trends.last_days()
 
+@register.assignment_tag
+def popular_this_week():
+    print BlogPost.trends.last_days(settings.TOP_POST_DAYS)
+    return BlogPost.trends.last_days(settings.TOP_POST_DAYS)
 

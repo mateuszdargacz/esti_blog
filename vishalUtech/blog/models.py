@@ -11,23 +11,22 @@ from datetime import datetime, timedelta
 
 
 class BlogPostManager(DisplayableManager):
-    def last_days(self, mdays):
+    def last_days(self, mdays=0):
         # return BlogPost.objects.filter(publish_date__gte=datetime.now()-timedelta(days=mdays)).order_by('ratio')
         # Sorted QuerySet by ratio propety from last [settings.TOP_POST_DAYS] days.:
         if mdays != 0:
             # return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays))[
-            #               :settings.TOP_POST_DAYS_AMOUNT],
+            # :settings.TOP_POST_DAYS_AMOUNT],
             #               key=lambda a: -a.ratio)
-            return BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)
-                                            ).order_by('-views_count')[:settings.TOP_POST_DAYS_AMOUNT]
+            return BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)).order_by(
+                '-views_count')[:settings.TOP_POST_DAYS_AMOUNT]
 
         # Sorted QuerySet by ratio without day limit
         else:
             # return sorted(BlogPost.objects.filter()[
-            #               :settings.TOP_POST_DAYS_AMOUNT],
+            # :settings.TOP_POST_DAYS_AMOUNT],
             #               key=lambda a: -a.ratio)
             return BlogPost.objects.filter().order_by('-views_count')[:settings.TOP_POST_EVER_AMOUNT]
-
 
     def trendingnow(self):
         return sorted(BlogPost.objects.all()[:settings.TOP_VIEWED_AMOUNT], key=lambda a: -a.topviewed)
