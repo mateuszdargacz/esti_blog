@@ -9,7 +9,7 @@ __pycache__/
 *.so
 # DB
 *.db
-
+media/
 # Distribution / packaging
 .Python
 env/
