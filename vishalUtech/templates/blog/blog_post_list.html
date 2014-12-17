@@ -44,7 +44,7 @@
     <div id="primary" class="col-md-9">
     <div class="post-headline">
         <div class="randdm"> Trending Now</div>
-        Most Popular
+        What is New?
     </div>
     <div class="col-md-8 entrypart" role="main">
         {% if tag or category or year or month or author %}
@@ -74,91 +74,7 @@
                 {% endblock %}
             {% endif %}
         {% endif %}
-        {% for blog_post in blog_posts.object_list %}
-            <article id="post-{{ blog_post.pk }}" class="post-{{ blog_post.pk }} post">
-                <div class="post-thumbnail home-page-thumb">
-                {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-                    {% block blog_post_list_post_featured_image %}
-                        <a href="{{ blog_post.get_absolute_url }}">
-                            <img class="attachment-large wp-post-image"
-                                 src="{{ blog_post.featured_image.url }}">
-                        </a>
-                    {% endblock %}
-                {% endif %}
-                </div>
-                <header class="post-header">
-                    {% block blog_post_list_post_metainfo %}
-                        {% editable blog_post.publish_date %}
-                            <div class="post-meta">
-                                {% with blog_post.categories.all as categories %}
-                                    {% if categories %}
-                                        {% trans "in" %}
-                                        {% for category in categories %}
-                                            <a href="{% url "blog_post_list_category" category.slug %}"
-                                               title="View all posts in Internet &amp; {{ category }}"
-                                               rel="category tag">{{ category }}</a>
-                                            {% if not forloop.last %}, {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endwith %}
-                            </div>
-                        {% endeditable %}
-                    {% endblock %}
-                    {% block blog_post_list_post_title %}
-                        {% editable blog_post.title %}
-                            <h3 class="entry-title">
-                                <a href="{{ blog_post.get_absolute_url }}" rel="bookmark">
-                                    {{ blog_post.title }}
-                                </a>
-                            </h3>
-                        {% endeditable %}
-                    {% endblock %}
-                </header>
-                {% block blog_post_list_post_content %}
-                    <div class="post-content">
-                    {% editable blog_post.content %}
-                        {{ blog_post.description_from_content|safe }}
-                    {% endeditable %}
-                    </div>
-                {% endblock %}
-
-                {% block blog_post_list_post_links %}
-                        {% keywords_for blog_post as tags %}
-                        {% if tags %}
-                            <ul class="list-inline tags">
-                                {% trans "Tags" %}:
-                                {% spaceless %}
-                                    {% for tag in tags %}
-                                        <li><a href="{% url "blog_post_list_tag" tag.slug %}" class="tag">{{ tag }}</a>
-                                        </li>
-                                    {% endfor %}
-                                {% endspaceless %}
-                            </ul>
-                        {% endif %}
-                        <footer class="entry-meta">
-                            {% if blog_post.allow_comments %}
-
-                                {% if settings.COMMENTS_DISQUS_SHORTNAME %}
-                                    <a href="{{ blog_post.get_absolute_url }}#disqus_thread"
-                                       data-disqus-identifier="{% disqus_id_for blog_post %}">
-                                        {% trans "Comments" %}
-                                    </a>
-                                {% else %}
-                                    <div class="comments-link">
-                                        <a href="{{ blog_post.get_absolute_url }}#comments">
-                                        <span class="leave-reply">
-                                            {% blocktrans  %}
-                                               Leave a comment
-                                            {% endblocktrans %}
-                                        </span>
-                                        </a>
-                                    </div>
-                                {% endif %}
-                            {% endif %}
-                        </footer>
-                {% endblock %}
-            </article>
-        {% endfor %}
+        {% include "blog/post_list.html"  with posts_list=blog_posts.object_list %}
 
         {% pagination_for blog_posts %}
 

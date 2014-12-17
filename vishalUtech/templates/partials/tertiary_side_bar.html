@@ -1,5 +1,6 @@
 {% load mezzanine_tags %}
-<div class="sidebarheadline">What is next?</div>
+{% load custom_blog_tags %}
+<div class="sidebarheadline">Most Popular</div>
 <div class="sidebar-inner">
     <div class="sidead">
         <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -15,11 +16,10 @@
 
     <div class="widget-area">
         <aside id="my_popula_posts-2" class="widget widget_my_popula_posts">
-            <h3 class="widget-title">Popular this week
-            </h3>
-            {% if blog_posts_top_week %}
+            {% mosttly as blog_posts %}
+            {% if blog_posts %}
                 <ul>
-                    {% for blog_post in blog_posts_top_week %}
+                    {% for blog_post in blog_posts %}
                         <li id="top_post-{{ blog_post.pk }}">
                             {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
                                 <a href="{{ blog_post.get_absolute_url }}">
