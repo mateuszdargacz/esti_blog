@@ -18,14 +18,15 @@ class BlogPostManager(DisplayableManager):
             # return sorted(BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays))[
             #               :settings.TOP_POST_DAYS_AMOUNT],
             #               key=lambda a: -a.ratio)
-            return BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)).order_by('-views_count')
+            return BlogPost.objects.filter(publish_date__gte=datetime.now() - timedelta(days=mdays)
+                                            ).order_by('-views_count')[:settings.TOP_POST_DAYS_AMOUNT]
 
         # Sorted QuerySet by ratio without day limit
         else:
             # return sorted(BlogPost.objects.filter()[
             #               :settings.TOP_POST_DAYS_AMOUNT],
             #               key=lambda a: -a.ratio)
-            return BlogPost.objects.filter().order_by('-views_count')
+            return BlogPost.objects.filter().order_by('-views_count')[:settings.TOP_POST_EVER_AMOUNT]
 
 
     def trendingnow(self):

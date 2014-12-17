@@ -67,9 +67,9 @@ def blog_post_list(request, tag=None, year=None, month=None, username=None,
     prefetch = ("categories", "keywords__keyword")
     blog_posts = blog_posts.select_related("user").prefetch_related(*prefetch)
     ### Adding feature posts for main page, amount set in settings
-    blog_posts_top_week = BlogPost.trends.last_days(settings.TOP_POST_DAYS)
-    blog_posts_top_ever = BlogPost.trends.last_days(0)
-    blog_posts_top_viewed = BlogPost.trends.trendingnow()
+    blog_posts_top_week = BlogPost.trends.last_days(settings.TOP_POST_DAYS) ### MOST POPULAR LAST 7 days (example)
+    blog_posts_top_ever = BlogPost.trends.last_days(0)     ### MOST POPULAR
+    blog_posts_top_viewed = BlogPost.trends.trendingnow()  ### TRENDING NOW
     blog_posts = paginate(blog_posts, request.GET.get("page", 1),
                           settings.BLOG_POST_PER_PAGE,
                           settings.MAX_PAGING_LINKS)
