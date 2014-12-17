@@ -1,0 +1,52 @@
+{% load socialaccount %}
+{{ request.user }}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if request.user.is_authenticated %}Logged In{% else %}Not Logged In{% endif %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+</head>
+<body class="{% if request.user.is_authenticated %}logged-in{% else %}logged-out{% endif %}">
+
+
+
+
+<ul>
+    <li><a href='{% provider_login_url "facebook" method="oauth2" %}'>Facebook Connect</a></li>
+    <li><a href='{% provider_login_url "google" method="oauth2" %}'>Google Connect</a></li>
+    <li><a href='{% provider_login_url "linkedin" method="oauth2" %}'>LinkedIn</a></li>
+    <li><a href='{% provider_login_url "twitter" method="oauth2" %}'>Twitter</a></li>
+</ul>
+{% if request.user.is_authenticated %}
+    <a href="/accounts/logout/" class="pull-right">Logout</a>
+    {% if request.user.first_name or request.user.last_name %}
+        {{ request.user.first_name }} {{ request.user.last_name }}
+    {% else %}
+        {{ request.user.username }}
+    {% endif %}
+    {% if request.user.is_authenticated %} (verified) {% else %} (unverified) {% endif %}
+
+{% else %}
+    <a href="/accounts/login/" class="pull-right">Login</a>
+{% endif %}
+</body>
+</html>
+
+
+
+
+
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+
+
+</body>
+</html>
+
+

@@ -5,6 +5,8 @@ from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 
+from django.views.generic.base import TemplateView
+
 from mezzanine.core.views import direct_to_template
 
 
@@ -79,8 +81,9 @@ urlpatterns += patterns('',
     # from it, and use them directly below instead of using
     # ``mezzanine.urls``.
     # MEZZANINE URLS OVERWITE
-
+    ("^connect/", TemplateView.as_view(template_name='temp/test.html')),
     ("^blog/", include("mezzanine.urls")),
+    ("^accounts/", include('allauth.urls')),
     ("^", include("mezzanine.urls")),
 
     # MOUNTING MEZZANINE UNDER A PREFIX

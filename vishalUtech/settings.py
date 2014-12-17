@@ -143,7 +143,11 @@ TEMPLATE_LOADERS = (
     "django.template.loaders.app_directories.Loader",
 )
 
-AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
+AUTHENTICATION_BACKENDS = (
+    "mezzanine.core.auth_backends.MezzanineBackend",
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -247,8 +251,8 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.pages",
     "mezzanine.galleries",
-    "mezzanine.twitter",
-    # "mezzanine.accounts",
+    #"mezzanine.twitter",
+    #"mezzanine.accounts",
     #"mezzanine.mobile",
 
 
@@ -270,6 +274,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "mezzanine.conf.context_processors.settings",
     "mezzanine.pages.context_processors.page",
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -309,6 +315,14 @@ OPTIONAL_APPS = (
     "django_extensions",
     "compressor",
     "south",
+    #Allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.linkedin',
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
@@ -365,6 +379,23 @@ TOP_VIEWED_AMOUNT = 7
 TOP_POST_DAYS = 7
 TOP_POST_DAYS_AMOUNT = 10
 MAX_PAGING_LINKS = 7
+
+LOGIN_REDIRECT_URL = '/'
+
+##########################
+# SOCIAL MEDIA PROVIDERS #
+##########################
+SOCIALACCOUNT_QUERY_EMAIL = True
+LOGOUT_ON_GET = True
+ACCOUNT_LOGOUT_ON_GET = True
+#SOCIALACCOUNT_ADAPTER = 'vishalUtech.allauth.my_adapter.MyAdapter'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_AUTO_SIGNUP = True
+try:
+    from .settings_providers import *
+except ImportError as e:
+    if "settings_providers" not in str(e):
+        raise e
 
 
 ##################
