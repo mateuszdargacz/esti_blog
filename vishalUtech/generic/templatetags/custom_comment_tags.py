@@ -14,7 +14,6 @@ def custom_comments_for(context, obj):
     Provides a generic context variable name for the object that
     comments are being rendered for.
     """
-    print 'tes fdsfsdfs'
     form = ThreadedCommentForm(context["request"], obj)
     try:
         context["posted_comment_form"]

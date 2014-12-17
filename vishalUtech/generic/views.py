@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.contrib.auth.decorators import login_required
 from mezzanine.generic.views import initial_validation
 
 __author__ = 'opel'
@@ -18,7 +19,7 @@ from mezzanine.utils.models import get_model
 from mezzanine.conf import settings
 
 
-
+@login_required
 def comment(request, template="generic/comments.html"):
     """
     Handle a ``ThreadedCommentForm`` submission and redirect back to its
