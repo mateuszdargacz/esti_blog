@@ -22,6 +22,7 @@ urlpatterns = i18n_patterns("",
     ("^admin/", include(admin.site.urls)),
 )
 
+#overwirtten blog urls
 blog_installed = "vishalUtech.blog" in settings.INSTALLED_APPS
 if blog_installed:
     BLOG_SLUG = settings.BLOG_SLUG.rstrip("/")
@@ -30,6 +31,12 @@ if blog_installed:
             ("^%s" % BLOG_SLUG, include("vishalUtech.blog.urls")),
     )
     urlpatterns += blog_patterns
+
+#overwirtten generic url for comments manipulations
+generic_patterns = patterns("",
+        ("^", include("vishalUtech.generic.urls")),
+)
+urlpatterns += generic_patterns
 
 urlpatterns += patterns('',
 

@@ -258,6 +258,7 @@ INSTALLED_APPS = (
 
     "vishalUtech.blog",
     "vishalUtech.core",
+    "vishalUtech.generic",
 )
 
 # List of processors used by RequestContext to populate the context.
