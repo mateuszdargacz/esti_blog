@@ -24,14 +24,14 @@ class Command(BaseCommand):
     categories = []
 
     def generate_categories(self):
-        categories = BlogCategory.objects.published()
+        categories = BlogCategory.objects.all()
         if categories.count() < self.categories_amount:
             for x in xrange(self.categories_amount - categories.count()):
                 cat = BlogCategory.objects.create(title=''.join(get_sentences(1))[:15])
                 cat.save()
         else:
             return categories
-        return BlogCategory.objects.published()
+        return BlogCategory.objects.all()
 
     def get_category(self):
         if self.categories:
