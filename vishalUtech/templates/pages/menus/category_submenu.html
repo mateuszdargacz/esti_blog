@@ -1,10 +1,23 @@
-{% load blog_tags %}
+{% load custom_blog_tags %}
 
-{% blog_categories as categories %}
+{% nested_blog_categories as categories %}
 {% for category in categories %}
     <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-        <a href="{% url "blog_post_list_category" category.slug %}">
-            {{ category.title }}
+        <a href="{% url "blog_post_list_category" category.category.slug %}">
+            {{ category.category.title }}
         </a>
+        {% if category.children %}
+            <ul class="sub-menu">
+                {% for child in category.children %}
+                    <li id="menu-item-{{ child.pk }}"
+                        class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-{{ child.pk }}">
+                        <a href="{% url "blog_post_list_category" child.slug %}">
+                            {{ child.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
     </li>
 {% endfor %}

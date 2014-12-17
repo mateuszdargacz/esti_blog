@@ -47,12 +47,16 @@ class BlogPostExtend:
 BlogPost.__bases__ += (BlogPostExtend,)
 
 
-class BlogCategoryExtend:
-    # Foreign key added  here instead of settings.EXTRA_MODEL_FIELDS,
+class BlogCategoryParentRelationManager(models.Manager):
+    pass
+
+
+class BlogCategoryParentRelation(models.Model):
+    # Circular ForeignKey hack.  of settings.EXTRA_MODEL_FIELDS,
     # because of mezzine's bug with circular relation
-    parent = models.ForeignKey('self', verbose_name='Parent category', blank=True, null=True)
+    parent = models.ForeignKey('blog.BlogCategory', verbose_name='Parent category', unique=True,
+                               related_name="parent")
+    children = models.ManyToManyField('blog.BlogCategory', verbose_name='children categories',
+                                      related_name="is_children")
 
-
-BlogCategory.__bases__ += (BlogPostExtend,)
-
-
+    objects = BlogCategoryParentRelationManager()

@@ -1139,7 +1139,7 @@ footer.entry-meta {
     margin-top: 24px;
 }
 
-footer  ul > li {
+footer ul > li {
     list-style: none;
 }
 
@@ -1949,6 +1949,7 @@ code {
     float: left;
     padding: 5px 0;
     width: 120px;
+
 }
 
 .comment-form .required {
@@ -1957,9 +1958,14 @@ code {
 
 .comment-form input[type="text"],
 .comment-form input[type="email"],
-.comment-form input[type="url"] {
+.comment-form input[type="url"],
+.comment-form textarea {
     max-width: 270px;
     width: 60%;
+    box-shadow: rgba(0, 0, 0, 0.0980392) 2px 2px 5px -2px inset;
+    border-radius: 2px;
+    border: 3px rgb(228, 228, 228);
+    outline-color: rgb(77, 77, 77);
 }
 
 .comment-form textarea {
