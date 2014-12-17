@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from blog.models import BlogCategoryParentRelation
 from django.contrib.auth import get_user_model
 from django.db.transaction import commit_on_success
 from django.utils.encoding import smart_text
@@ -29,6 +30,10 @@ class Command(BaseCommand):
             for x in xrange(self.categories_amount - categories.count()):
                 cat = BlogCategory.objects.create(title=''.join(get_sentences(1))[:15])
                 cat.save()
+                for x in xrange(random.randint(0, 6)):
+                    nested = BlogCategory.objects.create(title=''.join(get_sentences(1))[:15])
+                    relation = BlogCategoryParentRelation.objects.get_or_create(parent=cat)
+                    relation.children.add(nested)
         else:
             return categories
         return BlogCategory.objects.all()
