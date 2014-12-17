@@ -18,7 +18,7 @@ User = get_user_model()
 # import operator
 
 # def last_days(mdays):
-#     posts = BlogPost.objects.filter(publish_date__gte=datetime.now()-timedelta(days=mdays))
+# posts = BlogPost.objects.filter(publish_date__gte=datetime.now()-timedelta(days=mdays))
 #     for p in posts:
 #         diff = (datetime.now().date()-p.publish_date.date()).days
 #     posts = [(p,int(p.views_count)/int(diff),diff,p.views_count) for p in posts]
@@ -68,17 +68,14 @@ def blog_post_list(request, tag=None, year=None, month=None, username=None,
     blog_posts = blog_posts.select_related("user").prefetch_related(*prefetch)
     ### Adding feature posts for main page, amount set in settings
     blog_posts_top_week = BlogPost.trends.last_days(settings.TOP_POST_DAYS)
-    blog_posts_top_viewed = BlogPost.trends.top_viewed()
     blog_posts = paginate(blog_posts, request.GET.get("page", 1),
                           settings.BLOG_POST_PER_PAGE,
                           settings.MAX_PAGING_LINKS)
 
     context = ({"blog_posts": blog_posts, "year": year, "month": month,
-                 "tag": tag, "category": category, "author": author,
-                 "blog_posts_top_week": blog_posts_top_week,
-                 "blog_posts_top_viewed": blog_posts_top_viewed,
-
-                 })
+                "tag": tag, "category": category, "author": author,
+                "blog_posts_top_week": blog_posts_top_week,
+               })
 
     templates.append(template)
     return render(request, templates, context)

@@ -375,12 +375,16 @@ EXTRA_MODEL_FIELDS = (
 # }
 
 SECRET_KEY = 'fgdsfgdsgdfgdfsggghrtbtrhtrht'
+# Search settings
+SEARCH_MODEL_CHOICES = (
+    'blog.BlogPost',
+)
+SEARCH_PER_PAGE = 5
 RANDOM_POST_AMOUNT = 5
 TOP_VIEWED_AMOUNT = 7
 TOP_POST_DAYS = 7
 TOP_POST_DAYS_AMOUNT = 10
 MAX_PAGING_LINKS = 7
-
 LOGIN_REDIRECT_URL = '/'
 
 ##########################

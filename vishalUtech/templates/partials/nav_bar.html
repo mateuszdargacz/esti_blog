@@ -1,4 +1,5 @@
 {% load pages_tags %}
+{% load mezzanine_tags %}
 <h1>{% with get_categories  as categories %}
 {% for category in categories %}
 <h2>{{ category.title }}!</h2>
@@ -16,15 +17,7 @@
                         class="fa fa-search"></i><i class="fa fa-plus"></i>Share</a>
 
                 <div class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-                    <form role="search" method="get" class="search-form"
-                          action="http://demo.themingstrap.com/mashthirteen/">
-                        <label>
-                            <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s"
-                                   title="Search for:"/>
-                        </label>
-                        <input type="submit" class="search-submit" value="Search"/>
-                    </form>
+                        {% search_form %}
                     <div id="social">
                         <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                         <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>

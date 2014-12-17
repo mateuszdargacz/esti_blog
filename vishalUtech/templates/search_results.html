@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load i18n future mezzanine_tags %}
+
+{% block meta_title %}{% trans "Search Results" %}{% endblock %}
+{% block title %}{% trans "Search Results" %}{% endblock %}
+{% block extra_head %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    <li>
+        <a href="{% url "home" %}">{% trans "Home" %}</a>
+    </li>
+    <li class="active">{% trans "Search Results" %}</li>
+{% endblock %}
+
+{% block main %}
+    <div id="primary" class="col-md-9">
+        <div class="post-headline">
+            {% if results.paginator.count == 0 %}
+                {% blocktrans %}
+                    No results were found in {{ search_type }} matching your query: {{ query }}
+                {% endblocktrans %}
+            {% else %}
+                {{ results.paginator.count }}
+                {% blocktrans with total=results.paginator.count %}
+                    Found {{ total }} results in Blog Posts matching your
+                    query:
+                    {{ query }}
+                {% endblocktrans %}
+            {% endif %}
+            <div class="randdm">
+            </div>
+        </div>
+        {% if results.object_list %}
+            <div class="col-md-12 entrypart" role="main">
+                {% include "blog/post_list.html"  with posts_list=results.object_list %}
+                {% pagination_for results %}
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}
