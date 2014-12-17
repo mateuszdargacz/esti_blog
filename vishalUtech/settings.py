@@ -400,7 +400,7 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_AUTO_SIGNUP = True
 try:
-    from .settings_providers import *
+    from vishalUtech.settings_providers import *
 except ImportError as e:
     if "settings_providers" not in str(e):
         raise e
