@@ -24,19 +24,20 @@
         {% comment_thread object_for_comments %}
         </ol>
         <div id="respond" class="comment-respond">
-        <h3 class="comment-reply-title">{% trans "Leave a Reply" %}</h3>
-        <form method="post" id="comment" class="comment-form" action="{{ comment_url }}#comment">
-            <p class="comment-notes">Your email address will not be published. Required fields are marked <span
-                class="required">*</span></p>
-            {% if not request.POST.replied_to %}
-                {% fields_for posted_comment_form %}
-            {% else %}
-                {% fields_for unposted_comment_form %}
-            {% endif %}
-            <p class="form-submit">
-                <input class="btn btn-primary btn-lg" type="submit" value="{% trans "Post Comment" %}">
-            </p>
-        </form>
+                <h3 class="comment-reply-title">{% trans "Leave a Reply" %}</h3>
+                <form method="post" id="comment" class="comment-form" action="{{ comment_url }}#comment">
+                    <p class="comment-notes">Your email address will not be published. Required fields are marked <span
+                        class="required">*</span></p>
+                    {% if not request.POST.replied_to %}
+                        {% fields_for posted_comment_form %}
+                    {% else %}
+                        {% fields_for unposted_comment_form %}
+                    {% endif %}
+                    <p class="form-submit">
+                        <input class="btn btn-primary btn-lg" type="submit" value="{% trans "Post Comment" %}">
+                    </p>
+                </form>
+            {% if request.user.is_authenticated %}{% endif %}
         </div>
     {% endif %}
 </div>

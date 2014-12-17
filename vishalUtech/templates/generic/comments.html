@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load mezzanine_tags comment_tags keyword_tags %}
+{% load mezzanine_tags comment_tags keyword_tags custom_comment_tags %}
 
 {% block meta_title %}{{ obj }}{% endblock %}
 
@@ -15,6 +15,6 @@
 
 {% block main %}
     <div id="primary" class="col-md-9">
-        {% comments_for obj %}
+    {% custom_comments_for obj %}
     </div>
 {% endblock %}

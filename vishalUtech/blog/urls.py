@@ -11,6 +11,7 @@ _slashes = (
     "/" if settings.APPEND_SLASH else "",
 )
 
+
 urlpatterns = patterns("",
                        url("^%sfeeds/(?P<format>.*)%s$" % _slashes,
                            "mezzanine.blog.views.blog_post_feed", name="blog_post_feed"),

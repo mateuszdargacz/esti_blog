@@ -258,6 +258,7 @@ INSTALLED_APPS = (
 
     "vishalUtech.blog",
     "vishalUtech.core",
+    "vishalUtech.generic",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -346,6 +347,7 @@ EXTRA_MODEL_FIELDS = (
         ("Views count delta",),
         {"default": 0,
          "blank": False,
+         "db_index": True,
          },
     ),
 
