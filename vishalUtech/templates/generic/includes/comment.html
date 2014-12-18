@@ -20,7 +20,7 @@
                         <!-- .comment-metadata -->
                     </footer>
                     <div class="comment-content">
-                        <p>{{ comment.comment|comment_filter }}</p>
+                        <p>{{ comment.comment|safe|comment_filter }}</p>
                     </div><!-- .comment-content -->
 
                 {% endif %}
