@@ -69,7 +69,6 @@ class Command(BaseCommand):
             filedata = self.get_remote_image()
             file_path = 'uploads/blog/%s.jpg' % filedata.name
             uploadedfile = default_storage.save(file_path, filedata)
-            default_storage.move(smart_text(uploadedfile), smart_text(file_path), allow_overwrite=True)
             post.featured_image = file_path
             for x in xrange(random.randint(1, 3)):
                 cat = self.get_category()
