@@ -30,7 +30,7 @@ def own_admin_dropdown_menu(context):
     else:
         try:
             sites = user.sitepermissions.get().sites.all()
-        except:
+        except: #problem with accounts made without site permisions. DoesNotExist exception
             context["dropdown_menu_sites"] = []
             context["dropdown_menu_selected_site_id"] = current_site_id()
             return context
