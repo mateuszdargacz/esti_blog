@@ -40,7 +40,8 @@ def comment(request, template="generic/comments.html"):
         for field in ThreadedCommentForm.cookie_fields:
             cookie_name = ThreadedCommentForm.cookie_prefix + field
             cookie_value = post_data.get(field, "")
-            set_cookie(response, cookie_name, cookie_value)
+            print cookie_name, cookie_value
+            set_cookie(response, cookie_name, cookie_value.encode('utf-8', 'replace'))
         return response
     elif request.is_ajax() and form.errors:
         return HttpResponse(dumps({"errors": form.errors}))

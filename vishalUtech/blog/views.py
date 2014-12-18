@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from calendar import month_name
 
@@ -13,20 +14,6 @@ from mezzanine.utils.models import get_user_model
 
 
 User = get_user_model()
-
-# from datetime import datetime, timedelta
-# import operator
-
-# def last_days(mdays):
-#     posts = BlogPost.objects.filter(publish_date__gte=datetime.now()-timedelta(days=mdays))
-#     for p in posts:
-#         diff = (datetime.now().date()-p.publish_date.date()).days
-#     posts = [(p,int(p.views_count)/int(diff),diff,p.views_count) for p in posts]
-#     posts.sort(key=operator.itemgetter(1), reverse=True)
-#     sorted_list = []
-#     for p in posts:
-#         sorted_list.append(p[0])
-#     return sorted_list
 
 
 def blog_post_list(request, tag=None, year=None, month=None, username=None,
