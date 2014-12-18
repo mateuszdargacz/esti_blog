@@ -12,3 +12,6 @@ class ThreadedCommentForm(ThreadedCommentFormOld):
         self.fields['name'].widget = HiddenInput()
         self.fields['email'].widget = HiddenInput()
         self.fields['url'].widget = HiddenInput()
+        self.fields['honeypot'].widget = HiddenInput()
+        self.fields['honeypot'].label = ''
+        self.fields['comment'].label = ''

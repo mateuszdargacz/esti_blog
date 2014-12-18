@@ -1,0 +1,160 @@
+.comment-toolbar {
+    border: 2px;
+}
+
+.comment-toolbar .nicEdit-edit_bar {
+    display: none;
+    border: 1px solid #000000;
+    border-top: 1px solid #eaeaea;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+    margin-right: 20%;
+    margin-top: -7px;
+
+
+}
+.form-submit{
+    display: inline-block;
+    margin: 0;
+}
+.comment-toolbar-cont {
+    margin: 2px 0 0 0;
+    padding: 0;
+}
+
+.nicEdit-pane {
+    display: none;
+}
+
+.buttons-cont {
+    padding-left: 5px;
+}
+.nicEdit-comment_button, .nicEdit-comment_button:hover,
+.nicEdit-comment_button:active, .nicEdit-comment_button:focus, .nicEdit-comment_button:visited,
+.comment_button, .comment_button:hover,
+.comment_button:active, .comment_button:focus, .comment_button:visited {
+    background-clip: border-box;
+    background: rgb(0, 174, 239) none scroll;
+    background-origin: padding-box;
+    background-size: auto;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-radius: 0;
+    border: 1px solid rgb(3, 155, 223);
+    box-sizing: border-box;
+    padding: 0;
+    height: 31px;
+}
+.comment_button_white, .comment_button_white:hover,
+.comment_button_white:active, .comment_button_white:focus, .comment_button_white:visited{
+    background: rgb(255, 255, 255) none !important;
+    border: 1px rgb(255, 255, 255) none !important;
+}
+
+.btn_comment_post, .btn_comment_post:hover
+.btn_comment_post:active, .btn_comment_post:focus, .btn_comment_post:visited {
+    background: rgb(0, 174, 239) none !important;
+    background-origin: padding-box !important;
+    background-size: auto !important;
+    border-image-outset: 0;
+    border-image-repeat: stretch !important;
+    border-image-slice: 100% !important;
+    border-image-source: none !important;
+    border-image-width: 1 !important;
+    border-radius: 0 !important;
+
+    border: 1px solid rgb(3, 155, 223) !important;
+    cursor: pointer !important;
+    display: block !important;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px !important;
+    line-height: 30px !important;
+    text-align: right !important;
+    text-shadow: none !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    padding: 0 15px !important;
+
+}
+
+
+.nicEdit-main {
+    resize: none;
+    -webkit-background-clip: border-box;
+    -webkit-background-size: auto;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 3px 3px 8px -3px inset;
+    -webkit-user-modify: read-write;
+
+    background: rgb(255, 255, 255) none scroll;
+    background-origin: padding-box;
+    background-size: auto;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-radius: 0 0 0 0;
+    border: 1px solid rgb(228, 228, 228);
+
+}
+
+/*sprites___________________________*/
+.sprite {
+    display: block;
+    background-color: inherit!important;
+    border: none!important;
+}
+.sprite_helper {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    width: 13px;
+}
+
+.sprite_pencil {
+    background: url('../img/pen-sprite.png') no-repeat 8px -2px;
+    width: 33px;
+    height: 29px;
+}
+
+.sprite_bold {
+    background: url('../img/sprites.png') no-repeat 12px -182px;
+    width: 33px;
+    height: 29px;
+}
+
+.sprite_italic {
+    background: url('../img/sprites.png') no-repeat 13px -214px;
+    width: 33px;
+    height: 29px;
+}
+
+.sprite_underline {
+    background: url('../img/sprites.png') no-repeat 13px -246px;
+    width: 33px;
+    height: 29px;
+}
+
+.sprite_ol {
+    background: url('../img/sprites.png') no-repeat 10px -344px;
+    width: 33px;
+    height: 29px;
+}
+
+.sprite_ul {
+    background: url('../img/sprites.png') no-repeat 10px -375px;
+    width: 33px;
+    height: 29px;
+}
+

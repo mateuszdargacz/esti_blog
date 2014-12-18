@@ -169,6 +169,9 @@ mark {
 p {
     margin: 0 0 24px;
 }
+p.comment-form-id_comment {
+    margin: 0 0 0;
+}
 
 code,
 kbd,
@@ -367,12 +370,14 @@ input[type="search"] {
     border-radius: 30px;
     border-width: 4px;
 }
-input[type="search"]:focus{
-        border-width: 4px;
+
+input[type="search"]:focus {
+    border-width: 4px;
 
 }
-input[type="search"]:hover{
-        border-width: 4px;
+
+input[type="search"]:hover {
+    border-width: 4px;
 
 }
 
@@ -1961,6 +1966,7 @@ code {
 
 }
 
+
 .comment-form .required {
     color: #ed331c;
 }
@@ -1978,7 +1984,7 @@ code {
 }
 
 .comment-form textarea {
-    width: 100%;
+    min-width: 85%;
 }
 
 .form-allowed-tags,
@@ -2103,9 +2109,10 @@ code {
 }
 
 /* Search widget */
-.navbar-form.navbar-right{
+.navbar-form.navbar-right {
     margin-right: 0;
 }
+
 .search-form .search-submit {
     display: none;
 }
@@ -3143,11 +3150,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 0px;
 }
 
-.form-submit input[type=submit] {
-    border-bottom: 3px solid #2693BA !important;
-    background: #50B7DC !important;
 
-}
 
 .pagecontent {
     padding: 30px 0px;

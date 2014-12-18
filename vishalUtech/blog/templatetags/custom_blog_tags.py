@@ -33,11 +33,10 @@ def nested_blog_categories(*args):
 
 
 @register.assignment_tag
-def most_popular():
-    return BlogPost.trends.last_days()
+def most_popular(amount=0):
+    return BlogPost.trends.last_days(0, amount)
 
 @register.assignment_tag
 def popular_this_week():
-    print BlogPost.trends.last_days(settings.TOP_POST_DAYS)
     return BlogPost.trends.last_days(settings.TOP_POST_DAYS)
 

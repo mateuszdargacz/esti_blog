@@ -127,7 +127,7 @@
 <script src="{% static "js/html5shiv.js" %}"></script>
 <script src="{% static "js/respond.min.js" %}"></script>
 <![endif]-->
-
+    <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
     {% block extra_head %}{% endblock %}
 </head>
 
@@ -172,7 +172,7 @@
             {% include 'partials/tertiary_side_bar.html' %}
         </div>
     </div>
-
+    {% include "generic/includes/comments_login_modal.html" %}
     <!-- #footer -->
     {% include "partials/footer.html" %}
 
@@ -238,7 +238,6 @@
     </ul>
 </div>
 {% compress js %}
-    <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
     <script src="{% static "js/bootstrap-extras.js" %}"></script>
     <script src="{% static "js/bootstrap-shortcodes.js" %}"></script>

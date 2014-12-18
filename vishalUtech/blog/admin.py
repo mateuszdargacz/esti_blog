@@ -39,7 +39,6 @@ class BlogCategoryAdmin(admin.ModelAdmin):
         if parent_id:
             relation, _ = BlogCategoryParentRelation.objects.get_or_create(parent=parent_id)
             relation.children.add(obj)
-            print 'CLEANED', relation.children
 
 
 admin.site.unregister(BlogPost)
