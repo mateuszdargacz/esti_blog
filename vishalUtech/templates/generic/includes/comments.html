@@ -26,9 +26,15 @@
         <div id="respond" class="comment-respond">
             <h3 class="comment-reply-title">{% trans "Leave a Reply" %}</h3>
             {% if request.user.is_authenticated %}
-                <p>{% trans "You are comments as" %}  {{ request.user }}</p>
+                <p class="comment-reply-title">
+                    {% trans "You are comments as" %}  {{ request.user }}
+                </p>
             {% else %}
-                <p><a href="#" data-toggle="modal" data-target="#comment_login">{% trans "Sign In" %}</a></p>
+                <p class="comment-reply-title">
+                    <a href="#" data-toggle="modal" data-target="#comment_login">
+                        {% trans "Sign In" %}
+                    </a>
+                </p>
             {% endif %}
             <form method="post" id="comment" class="comment-form" action="{{ comment_url }}#comment">
                 {% if not request.POST.replied_to %}

@@ -15,5 +15,3 @@ class ThreadedCommentForm(ThreadedCommentFormOld):
         self.fields['honeypot'].widget = HiddenInput()
         self.fields['honeypot'].label = ''
         self.fields['comment'].label = ''
-        if not request.user.is_authenticated():
-            self.fields['comment'].widget.attrs['onfocus'] = "$('#comment_login').modal('show')"

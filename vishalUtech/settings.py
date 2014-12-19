@@ -392,7 +392,7 @@ TOP_POST_DAYS_AMOUNT = 10
 TOP_POST_EVER_AMOUNT = 10
 MAX_PAGING_LINKS = 7
 LOGIN_REDIRECT_URL = '/'
-ACCOUNT_ADAPTER = 'vishalUtech.adapter.adapter.MyAdapter'
+
 
 
 ##########################
