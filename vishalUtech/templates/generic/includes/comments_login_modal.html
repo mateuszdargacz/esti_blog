@@ -51,7 +51,8 @@ login on click textarea, prevents to sending post without login
     <script>
         $(document).on('ready', function(){
 
-            $(body).on('click', '.nicEdit-main', function(){
+            $(body).on('click', '.nicEdit-main, .btn-primary.btn_comment_post', function(e){
+                e.preventDefault();
                $('#comment_login').modal('show');
             });
 

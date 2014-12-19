@@ -42,112 +42,11 @@
                 {% else %}
                     {% fields_for unposted_comment_form %}
                 {% endif %}
-                {#     TOOLBAR START       #}
-                <div class="row comment-toolbar-cont">
-                    <div class="comment-toolbar">
-                        <div class="col-xs-2 col-sm-2 buttons-cont">
-                            <button id="edit_btn" class="comment_button" type="button">
-                                <div class="sprite sprite_pencil">
-                                    <div class="sprite_helper">
-
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                        <div class="col-xs-6 col-offset-6 col-sm-4 col-sm-offset-6">
-                            <div class="form-submit">
-                                <input class="btn btn-primary btn_comment_post" type="submit"
-                                       value="{% trans "Post Comment" %}"
-                                       {% if not request.user.is_authenticated %}
-                                             data-toggle="modal"
-                                             data-target="#comment_login"
-                                       {% endif %}>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                {#     TOOLBAR END       #}
-
+                    <input name="is_authed" type="hidden" value="{{ request.user.is_authenticated }}"/>
             </form>
+            {% if request.user.is_authenticated %}{% endif %}
         </div>
     {% endif %}
-</div>
-
-<div class="vishal-editor-toolbar">
-    <div class="vishal-mention-menu vishal-mention-menu-vertical" role="menu" aria-haspopup="true"
-         style="-webkit-user-select: none; display: none;">
-        <div class="vishal-mention-menu-filter" style="-webkit-user-select: none;">
-            <div style="-webkit-user-select: none;"></div>
-            <input type="text" aria-autocomplete="list" aria-owns=":h.content-el" aria-expanded="true" tabindex="-1"
-                   style="-webkit-user-select: none;"></div>
-        <div class="vishal-mention-menu-content" id=":h.content-el" style="-webkit-user-select: none;">
-            <div class="vish-control vish-control-disabled" aria-disabled="true" id=":e"
-                 style="-webkit-user-select: none;"></div>
-            <div class="vish-control vish-control-disabled" aria-disabled="true" id=":f"
-                 style="-webkit-user-select: none;"></div>
-            <div class="vish-control vish-control-disabled" aria-disabled="true" id=":g"
-                 style="-webkit-user-select: none;"></div>
-            <div class="vishal-mention-item vishal-mention-item-twitter" aria-hidden="true" id=":i"
-                 style="-webkit-user-select: none; display: none;"><img src="http://avatars.vishal.co/a/anon/50.jpg"
-                                                                        class="vishal-mention-item-avatar"><h4
-                    class="vishal-mention-item-display-name"></h4><span class="vishal-mention-item-twitter"></span>
-            </div>
-            <div class="vishal-mention-item vishal-mention-item-livevishal" aria-hidden="true" id=":j"
-                 style="-webkit-user-select: none; display: none;"><img src="http://avatars.vishal.co/a/anon/50.jpg"
-                                                                        class="vishal-mention-item-avatar"><h4
-                    class="vishal-mention-item-display-name"></h4><span class="vishal-mention-item-livevishal"></span>
-            </div>
-        </div>
-    </div>
-    <div class="vish-toolbar vish-toolbar-horizontal" role="toolbar" style="-webkit-user-select: none;">
-        <div class="vish-toolbar-separator vish-inline-block" role="separator" id=":b"
-             style="-webkit-user-select: none;">&nbsp;</div>
-        <div class="vish-inline-block vishal-button-left vishal-format-button" role="button" id=":d"
-             style="-webkit-user-select: none;">
-            <div class="vish-inline-block vishal-button-left-outer-box">
-                <div class="vish-inline-block vishal-button-left-inner-box"></div>
-            </div>
-        </div>
-        <div class="vish-inline-block vishal-button-left vishal-mention-button" role="button" id=":l"
-             style="-webkit-user-select: none;">
-            <div class="vish-inline-block vishal-button-left-outer-box">
-                <div class="vish-inline-block vishal-button-left-inner-box"></div>
-            </div>
-        </div>
-        <div class="vish-inline-block vishal-button-left vishal-embed-button" role="button" id=":n" aria-hidden="true"
-             style="-webkit-user-select: none; display: none;">
-            <div class="vish-inline-block vishal-button-left-outer-box">
-                <div class="vish-inline-block vishal-button-left-inner-box"></div>
-            </div>
-        </div>
-        <div class="vish-inline-block vishal-button-left vishal-raw-button" role="button" id=":p"
-             style="-webkit-user-select: none; display: none;">
-            <div class="vish-inline-block vishal-button-left-outer-box">
-                <div class="vish-inline-block vishal-button-left-inner-box"></div>
-            </div>
-        </div>
-        <div class="vish-inline-block vishal-button-left vishal-follow-button" role="button" id=":r"
-             style="-webkit-user-select: none;">
-            <div class="vish-inline-block vishal-button-left-outer-box">
-                <div class="vish-inline-block vishal-button-left-inner-box">+ Follow</div>
-            </div>
-        </div>
-        <div class="vish-inline-block vishal-button-right vishal-share-button" role="button" id=":t"
-             style="-webkit-user-select: none;">
-            <div class="vish-inline-block vishal-button-right-outer-box">
-                <div class="vish-inline-block vishal-button-right-inner-box">Share<label
-                        class="vishal-share-counter vishal-share-empty"></label></div>
-            </div>
-        </div>
-        <div class="vish-inline-block vishal-button-right vishal-post-button vishal-post-button-new" role="button"
-             id=":v"
-             style="-webkit-user-select: none;">
-            <div class="vish-inline-block vishal-button-right-outer-box">
-                <div class="vish-inline-block vishal-button-right-inner-box">Post comment as...</div>
-            </div>
-        </div>
-    </div>
 </div>
 
 {% block extra_css %}
