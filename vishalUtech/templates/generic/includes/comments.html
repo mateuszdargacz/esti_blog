@@ -25,7 +25,11 @@
         </ol>
         <div id="respond" class="comment-respond">
             <h3 class="comment-reply-title">{% trans "Leave a Reply" %}</h3>
-
+            {% if request.user.is_authenticated %}
+                <p>{% trans "You are comments as" %}  {{ request.user }}</p>
+            {% else %}
+                <p><a href="#" data-toggle="modal" data-target="#comment_login">{% trans "Sign In" %}</a></p>
+            {% endif %}
             <form method="post" id="comment" class="comment-form" action="{{ comment_url }}#comment">
                 {% if not request.POST.replied_to %}
                     {% fields_for posted_comment_form %}
@@ -47,7 +51,11 @@
                         <div class="col-xs-6 col-offset-6 col-sm-4 col-sm-offset-6">
                             <div class="form-submit">
                                 <input class="btn btn-primary btn_comment_post" type="submit"
-                                       value="{% trans "Post Comment" %}">
+                                       value="{% trans "Post Comment" %}"
+                                       {% if not request.user.is_authenticated %}
+                                             data-toggle="modal"
+                                             data-target="#comment_login"
+                                       {% endif %}>
                             </div>
                         </div>
                     </div>
@@ -56,7 +64,6 @@
                 {#     TOOLBAR END       #}
 
             </form>
-            {% if request.user.is_authenticated %}{% endif %}
         </div>
     {% endif %}
 </div>

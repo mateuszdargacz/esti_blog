@@ -13,6 +13,9 @@ from __future__ import absolute_import, unicode_literals
 
 # Controls the ordering and grouping of the admin menu.
 #
+
+
+
 ADMIN_MENU_ORDER = (
     ("Content", ("pages.Page", "pages.BlogPost",
        "generic.ThreadedComment", ("Media Library", "fb_browse"),)),
@@ -389,6 +392,8 @@ TOP_POST_DAYS_AMOUNT = 10
 TOP_POST_EVER_AMOUNT = 10
 MAX_PAGING_LINKS = 7
 LOGIN_REDIRECT_URL = '/'
+ACCOUNT_ADAPTER = 'vishalUtech.adapter.adapter.MyAdapter'
+
 
 ##########################
 # SOCIAL MEDIA PROVIDERS #
