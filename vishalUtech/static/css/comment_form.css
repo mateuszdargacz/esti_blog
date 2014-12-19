@@ -194,6 +194,13 @@
     width: 70%;
 }
 
+@media screen and (max-width: 1000px){
+    .modal-dialog {
+    width: 100%;
+    }
+
+}
+
 
 #social-icons a {
     margin: 10px;

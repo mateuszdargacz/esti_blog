@@ -47,7 +47,7 @@
 {% comment %}
 login on click textarea, prevents to sending post without login
 {% endcomment %}
-{% if request.user.is_authenticated %}
+{% if not request.user.is_authenticated %}
     <script>
         $(document).on('ready', function(){
 
