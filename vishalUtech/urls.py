@@ -7,7 +7,6 @@ from django.contrib import admin
 
 from django.views.generic.base import TemplateView
 
-from mezzanine.core.views import direct_to_template
 
 
 admin.autodiscover()

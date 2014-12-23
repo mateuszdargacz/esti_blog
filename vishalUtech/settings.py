@@ -1,5 +1,8 @@
 from __future__ import absolute_import, unicode_literals
 
+from os.path import abspath, basename, dirname, join, normpath
+from sys import path
+
 # #####################
 # MEZZANINE SETTINGS #
 ######################
@@ -158,6 +161,7 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #'compressor.finders.CompressorFinder',
 )
 
 # The numeric mode to set newly-uploaded files to. The value should be
@@ -199,10 +203,22 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Name of the directory for the project.
 PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 
+#### PATHS ALTERNATIVE
+# Absolute filesystem path to the Django project directory:
+DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+# Absolute filesystem path to the top-level project folder:
+SITE_ROOT = DJANGO_ROOT
+SITE_NAME = basename(DJANGO_ROOT)
+path.append(DJANGO_ROOT)
+#### END PATHS ALTERNATIVE
+
 # Every cache key will get prefixed with this value - here we set it to
 # the name of the directory the project is in to try and use something
 # project specific.
 CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_DIRNAME
+
+
+PUBLIC_URL = normpath(join(SITE_ROOT, 'public'))
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -212,16 +228,25 @@ STATIC_URL = "/static/"
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'public/','static')
+STATIC_ROOT = normpath(join(PUBLIC_URL, 'static'))
+
+STATICFILES_DIRS = (
+       #os.path.join(PROJECT_ROOT, 'static/'),
+       normpath(join(SITE_ROOT, 'static')),
+)
+
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = STATIC_URL + "media/"
+#MEDIA_URL = STATIC_URL + "media/"
+MEDIA_URL = '/media/'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
+#MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
+MEDIA_ROOT = normpath(join(PUBLIC_URL, 'media'))
 
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
