@@ -137,22 +137,8 @@
         {% include 'partials/nav_bar.html' %}
     </header>
     <div id="maincontainer" class="row">
-        {#GOOGLE ADS#}
-        <div class="headeradcont">
-            <div class="headerad">
-                <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- forovtop -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:728px;height:90px"
-                     data-ad-client="ca-pub-4269944909786602"
-                     data-ad-slot="2232694264"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-        {#END GOOGLE ADS#}
 
+        <img src="{% static "img/esti_blog.png" %}" class="img-full" alt=""/>
         {% nevercache %}
             {% if messages %}
                 <div class="messages">

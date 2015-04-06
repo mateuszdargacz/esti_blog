@@ -1,38 +1,38 @@
 {% load i18n static mezzanine_tags comment_tags %}
 <div id="comments" class="comments-area">
-    <h2 class="comments-title">
+    <h4 class="comments-title">
         {% blocktrans count comments_count=object_for_comments.comments_count %}
-            {{ comments_count }} thought{% plural %}{{ comments_count }} thoughts
-        {% endblocktrans %} on
+            {{ comments_count }} komentarz{% plural %}{{ comments_count }} komentarzy
+        {% endblocktrans %} na temat:
         “<span>{{ object_for_comments.title }}</span>”
-    </h2>
+    </h4>
     {% if settings.COMMENTS_DISQUS_SHORTNAME %}
-        {% include "generic/includes/disqus_comments.html" %}
+    {% include "generic/includes/disqus_comments.html" %}
     {% else %}
-        <script>
-            $(function () {
-                $('.reply').click(function () {
-                    $('.comment-reply-form').hide();
-                    $(this).siblings('.comment-reply-form').toggle();
-                });
+    <script>
+        $(function () {
+            $('.reply').click(function () {
+                $('.comment-reply-form').hide();
+                $(this).siblings('.comment-reply-form').toggle();
             });
-        </script>
-        <style>.input_id_honeypot {
-            display: none !important;
-        }</style>
-        <ol class="comment-list">
-            {% comment_thread object_for_comments %}
+        });
+    </script>
+    <style>.input_id_honeypot {
+        display: none !important;
+    }</style>
+    <ol class="comment-list">
+        {% comment_thread object_for_comments %}
         </ol>
         <div id="respond" class="comment-respond">
-            <h3 class="comment-reply-title">{% trans "Leave a Reply" %}</h3>
+            <h3 class="comment-reply-title">{% trans "Bądź pierwsza!" %}</h3>
             {% if request.user.is_authenticated %}
                 <p class="comment-reply-title">
-                    {% trans "You are comments as" %}  {{ request.user }}
+                    {% trans "skomentuj  jako: " %}  {{ request.user }}
                 </p>
             {% else %}
                 <p class="comment-reply-title">
                     <a href="#" data-toggle="modal" data-target="#comment_login">
-                        {% trans "Sign In" %}
+                        {% trans "Zaloguj sie" %}
                     </a>
                 </p>
             {% endif %}

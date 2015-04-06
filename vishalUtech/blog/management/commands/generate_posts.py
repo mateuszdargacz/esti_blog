@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from vishalUtech.blog.models import BlogCategoryParentRelation
 from django.contrib.auth import get_user_model
-from django.db.transaction import commit_on_success
+from django.db.transaction import commit_on_success, atomic
 from django.utils.encoding import smart_text
 from mezzanine.blog.models import BlogPost, BlogCategory
 from django.core.files.storage import default_storage
@@ -49,7 +49,7 @@ class Command(BaseCommand):
     def get_user(self):
         return self.users[random.randint(0, len(self.users)-1)]
 
-    @commit_on_success
+    @atomic
     def handle(self, *args, **options):
         amount = 1
         if len(args) > 0:

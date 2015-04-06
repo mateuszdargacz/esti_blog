@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
 from os.path import abspath, basename, dirname, join, normpath
@@ -109,19 +110,19 @@ ALLOWED_HOSTS = ['*']
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = "America/Los_Angeles"
+TIME_ZONE = "Europe/Warsaw"
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "pl"
 
 # Supported languages
 _ = lambda s: s
 LANGUAGES = (
-    ('en', _('English')),
+    ('pl', _('Polish')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -173,12 +174,25 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 # DATABASES #
 #############
 COMMENTS_USE_RATINGS =False
+
+#########
+# PATHS #
+#########
+
+import os
+
+# Full filesystem path to the project.
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# Name of the directory for the project.
+PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
+
+
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
         "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
-        "NAME": "",
+        "NAME": os.path.join(PROJECT_ROOT, "estawi.db"),
         # Not used with sqlite3.
         "USER": "",
         # Not used with sqlite3.
@@ -189,19 +203,6 @@ DATABASES = {
         "PORT": "",
     }
 }
-
-
-#########
-# PATHS #
-#########
-
-import os
-
-# Full filesystem path to the project.
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# Name of the directory for the project.
-PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 
 #### PATHS ALTERNATIVE
 # Absolute filesystem path to the Django project directory:
@@ -453,7 +454,7 @@ except ImportError as e:
 ####################
 # DYNAMIC SETTINGS #
 ####################
-
+SITE_TITLE = u'Tania szafa - zabawa modą'
 # set_dynamic_settings() will rewrite globals based on what has been
 # defined so far, in order to provide some better defaults where
 # applicable. We also allow this settings module to be imported

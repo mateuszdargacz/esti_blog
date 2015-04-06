@@ -1,69 +1,20 @@
 {% load mezzanine_tags %}
 {% load custom_blog_tags %}
-<div class="sidebarheadline">Most Popular</div>
+<div class="sidebarheadline">O nas</div>
 <div class="sidebar-inner">
-    <div class="sidead">
-        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- fornijukti -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:300px;height:250px"
-             data-ad-client="ca-pub-4269944909786602"
-             data-ad-slot="7867209062"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+
 
     <div class="widget-area">
         <aside id="my_popula_posts-2" class="widget widget_my_popula_posts">
-            {% most_popular as blog_posts %}
-            {% if blog_posts %}
-                <ul>
-                    {% for blog_post in blog_posts %}
-                        <li id="top_post-{{ blog_post.pk }}">
-                            {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-                                <a href="{{ blog_post.get_absolute_url }}">
-                                    <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 100 59 %}"
-                                         class="attachment-post-thumbnail wp-post-image"
-                                         alt="{{ blog_post.title }}"/>
-                                </a>
-                            {% endif %}
-                            <h3>
-                                <a href="{{ blog_post.get_absolute_url }}   ">
-                                    {{ blog_post.title }}
-                                </a>
-                            </h3>
-                            <span>{{ blog_post.publish_date|date:"d, M Y" }}</span>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+            Tania szafa <br/>
+            Warszawa cos tam <br/>
 
-        </aside>
-        <aside id="my_popula_posts-2" class="widget widget_my_popula_posts">
-        <h3 class="widget-title">Popular this week</h3>
-            {% popular_this_week as blog_posts_this_week %}
-            {% if blog_posts_this_week %}
-                <ul>
-                    {% for blog_post in blog_posts_this_week %}
-                        <li id="top_post-{{ blog_post.pk }}">
-                            {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-                                <a href="{{ blog_post.get_absolute_url }}">
-                                    <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 100 59 %}"
-                                         class="attachment-post-thumbnail wp-post-image"
-                                         alt="{{ blog_post.title }}"/>
-                                </a>
-                            {% endif %}
-                            <h3>
-                                <a href="{{ blog_post.get_absolute_url }}   ">
-                                    {{ blog_post.title }}
-                                </a>
-                            </h3>
-                            <span>{{ blog_post.publish_date|date:"d, M Y" }}</span>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+            TUTAJ MAPA ?<br/>
+            telefon <br/>
+            email <br/>
+            godziny otwarcia <br/>
+            zdjecie sklepu ?
+            Zapraszamy!
 
         </aside>
     </div>

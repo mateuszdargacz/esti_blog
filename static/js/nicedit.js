@@ -548,7 +548,7 @@ var nicEditorPanel = bkClass.extend({construct: function (E, B, A) {
     this.panelElm = new bkElement("DIV").addClass("edit_bar").appendTo(this.buttons_cont);
     this.submit_cont = new bkElement("DIV").addClass("a col-xs-4 col-offset-4 col-sm-4 col-sm-offset-6").appendTo(this.toolbar);
     this.submit_b_c = new bkElement("DIV").addClass("a form-submit").appendTo(this.submit_cont);
-    this.submit_b_c = new bkElement("button").addClass("a btn btn-primary btn_comment_post").setContent('Post Comment').appendTo(this.submit_b_c);
+    this.submit_b_c = new bkElement("button").addClass("a btn btn-primary btn_comment_post").setContent('Skomentuj!').appendTo(this.submit_b_c);
 
     var edit_button = $(this.buttons_cont).find('#edit_btn');
     edit_button.on('click', function (e) {

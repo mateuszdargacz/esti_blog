@@ -14,12 +14,12 @@
         </div>
         <div class="dropdown searchtoggel">
             <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown"><i
-                    class="fa fa-search"></i><i class="fa fa-plus"></i>Share</a>
+                    class="fa fa-search"></i><i class="fa fa-plus"></i>Udostępnij</a>
             <div class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
                 {% search_form %}
                 <div id="social">
                     <a class="facebook"
-               onclick="javascript:alert(window.location.hostname); mashFbSharrer(window.location.hostname, '{{ blog_post.content|slice:":128" }}','{{ blog_post.featured_image.url }}',520,350)"
+               onclick="mashFbSharrer(window.location.hostname, '{{ blog_post.content|slice:":128" }}','{{ blog_post.featured_image.url }}',520,350)"
                href="javascript:return(0);"><i class="fa fa-facebook"></i></a>
             <a class="twitter"
                onclick="javascript:mashTwSharrer(window.location.hostname, '{{ blog_post.content|slice:":128"|striptags }}','{{ blog_post.featured_image.url }}', 520, 350)"
@@ -41,7 +41,7 @@
 
         </div>
         <nav id="site-navigation" class="navigation" role="navigation">
-            <a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>
+            <a class="screen-reader-text skip-link" href="#content" title="Skip to content"> Przejdz</a>
 
             <div class="menu-mainmenu-container">
                 <ul id="menu-mainmenu" class="nav-menu">

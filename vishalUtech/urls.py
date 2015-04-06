@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.conf.urls.static import static
 from mezzanine.conf import settings
 
 from django.conf.urls import patterns, include, url
@@ -105,7 +106,6 @@ urlpatterns += patterns('',
     # of this file as well.
     # Note that for any of the various homepage patterns above, you'll
     # need to use the ``SITE_PREFIX`` setting as well.
-
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
 
 )
@@ -114,3 +114,4 @@ urlpatterns += patterns('',
 # pages can use JS, CSS and images.
 handler404 = "mezzanine.core.views.page_not_found"
 handler500 = "mezzanine.core.views.server_error"
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

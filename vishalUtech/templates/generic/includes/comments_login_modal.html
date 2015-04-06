@@ -5,15 +5,9 @@
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                <h1>Sign In</h1>
+                <h1>Zaloguj się</h1>
                 <p>
-                    Get more than ever out of {{ settings.SITE_TITLE }}.
-                </p>
-                <p>
-                    Build your own personal story stream, participate in discussions, easily share your favorite stories, and connect with what your friends are sharing.
-                </p>
-                <p>
-                    Just select your favorite social network to get started.
+                    Aby w pełni korzystać z serwisu.
                 </p>
                 <div id="social-icons">
                     <a href='{% provider_login_url "facebook" method="oauth2" next=request.get_full_path %}#comment'><i class="fa fa-facebook-square"></i></a></li>

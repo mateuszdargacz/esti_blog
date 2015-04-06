@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n future mezzanine_tags blog_tags keyword_tags disqus_tags %}
+{% load custom_blog_tags %}
 
 {% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock %}
 {% block meta_keywords %}{% metablock %}
@@ -43,8 +44,8 @@
 {% block main %}
     <div id="primary" class="col-md-9">
     <div class="post-headline">
-        <div class="randdm"> Trending Now</div>
-        What is New?
+        <div class="randdm"> Popularne</div>
+        Nowe wpisy
     </div>
     <div class="col-md-8 entrypart" role="main">
         {% if tag or category or year or month or author %}
@@ -84,7 +85,8 @@
     </div>
     <div class="col-md-4 randomposts">
         {% block blog_post_list_post_title_featured %}
-            {% for blog_post in blog_posts_trending_now %}
+            {% most_popular as blog_posts %}
+            {% for blog_post in blog_posts %}
                 <article id="post-{{ blog_post.pk }}" class="post-{{ blog_post.pk }} post">
                     {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
                         {% block blog_post_feature_list_post_featured_image %}

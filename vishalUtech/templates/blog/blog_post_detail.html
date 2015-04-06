@@ -82,16 +82,7 @@
                     {% endblock %}
                     {% block blog_post_detail_content %}
                         <div class="entry-content">
-                            <div class="contentad">
-                                <script async=""
-                                        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                <!-- fornijukti -->
-                                <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px"
-                                     data-ad-client="ca-pub-4269944909786602" data-ad-slot="7867209062"></ins>
-                                <script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
+
                             {% editable blog_post.content %}
                                 {{ blog_post.content|richtext_filters|safe }}
                             {% endeditable %}
@@ -139,5 +130,6 @@
             </div>
         </div>
     </div>
+    <hr/>
     </div>
 {% endblock %}

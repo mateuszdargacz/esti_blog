@@ -35,7 +35,7 @@
 .comment_button, .comment_button:hover,
 .comment_button:active, .comment_button:focus, .comment_button:visited {
     background-clip: border-box;
-    background: rgb(0, 174, 239) none scroll;
+    background: #de5873 none scroll;
     background-origin: padding-box;
     background-size: auto;
     border-image-outset: 0;
@@ -44,7 +44,7 @@
     border-image-source: none;
     border-image-width: 1;
     border-radius: 0;
-    border: 1px solid rgb(3, 155, 223);
+    border: 1px solid #f88a97;
     box-sizing: border-box;
     padding: 0;
     height: 31px;
@@ -57,7 +57,7 @@
 
 .btn_comment_post, .btn_comment_post:hover
 .btn_comment_post:active, .btn_comment_post:focus, .btn_comment_post:visited {
-    background: rgb(0, 174, 239) none !important;
+    background: #de5873 none !important;
     background-origin: padding-box !important;
     background-size: auto !important;
     border-image-outset: 0;
@@ -67,7 +67,7 @@
     border-image-width: 1 !important;
     border-radius: 0 !important;
 
-    border: 1px solid rgb(3, 155, 223) !important;
+    border: 1px solid #f88a97 !important;
     cursor: pointer !important;
     display: block !important;
     font-size: 12px;
@@ -247,7 +247,7 @@
 }
 
 .modal-content i.fa-linkedin-square {
-    color: #007bb6;
+    color: #b53d2d;
     transition:color 0.4s;
     -moz-transition:color 0.4s; /* Firefox 4 */
     -webkit-transition:color 0.4s; /* Safari and Chrome */
@@ -255,7 +255,7 @@
 }
 
 .modal-content i.fa-linkedin-square:hover {
-    color: #005f8b;
+    color: #b53d2d;
 }
 
 

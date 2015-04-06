@@ -172,7 +172,9 @@ p {
 p.comment-form-id_comment {
     margin: 0 0 0;
 }
-
+.img-full {
+    width: 100%;
+}
 code,
 kbd,
 pre,
@@ -530,7 +532,7 @@ hr {
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
-    color: #21759b;
+    color: #f88a97;
     display: block;
     font-size: 14px;
     font-weight: bold;
@@ -958,7 +960,7 @@ ul.nav-menu li:hover > ul,
 
 /* Navbar */
 .navbar {
-    background-color: #2980b9;
+    background-color: #f88a97;
     margin: 0 auto;
     max-width: 1600px;
     width: 100%;
@@ -1034,7 +1036,7 @@ ul.nav-menu li:hover > ul,
 #maincontainer {
     max-width: 1450px;
     margin: auto;
-    padding: 50px 0px 0px 0px;
+    padding: 0 0px 0px 0px;
     background: #f6f5f2;
     border: 1px solid #f6f5f2;
 }
@@ -1246,7 +1248,6 @@ footer ul > li {
 
 .gallery {
     margin-bottom: 20px;
-    margin-left: -4px;
 }
 
 .gallery-item {
@@ -1766,7 +1767,7 @@ footer ul > li {
 }
 
 .comments-title {
-    font: 300 italic 28px "Source Sans Pro", Helvetica, sans-serif;
+    font: 300 italic 22px "Source Sans Pro", Helvetica, sans-serif;
 }
 
 .comment-list,
@@ -2022,6 +2023,9 @@ code {
     padding: 40px 0;
     text-align: center;
 }
+#comments {
+    border-top: 2px solid #e6402a;
+}
 
 .sidebar .no-comments {
     padding-left: 60px;
@@ -2188,7 +2192,7 @@ code {
 }
 
 .site-footer .sidebar-container {
-    background-color: #2980b9;
+    background-color: #f88a97;
     padding: 20px 0;
 }
 
@@ -2874,7 +2878,7 @@ code {
 }
 
 a {
-    color: #2693BA;
+    color: #f49aa5;
 }
 
 .site-title {
@@ -3019,8 +3023,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-    background: #2980b9;
-    border-bottom: 1px solid #2693BA;
+    background: #f88a97;
+    border-bottom: 1px solid #f49aa5;
     line-height: .7 !important;
 }
 
@@ -3031,11 +3035,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 27px;
     line-height: 57px;
     padding: 0px 40px 0px 40px;
-    background: #3498db;
+    background: #de5873;
 }
 
 .navbar-brand:hover {
-    background: #34495e;
+    background: #f88a97;
 }
 
 .nav-menu li a {
@@ -3049,15 +3053,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu li.current-menu-item a {
-    background: #2693BA;
+    background: #f49aa5;
 }
 
 .nav-menu li a:hover {
-    background: #2693BA;
+    background: #f49aa5;
 }
 
 .nav-menu li:hover a {
-    background: #2693BA;
+    background: #f49aa5;
 }
 
 .sidebar-inner aside {
@@ -3087,11 +3091,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .paging-navigation .meta-nav {
-    background: #2693BA !important;
+    background: #f49aa5 !important;
 }
 
 .site-footer .sidebar-container {
-    background: #2980b9;
+    background: #f88a97;
 }
 
 .site-footer .sidebar-container a {
@@ -3109,6 +3113,7 @@ h1, h2, h3, h4, h5, h6 {
 .singlepost {
     background: #fff;
     border-right: 1px solid #ccc;
+    margin-top: 25px
 }
 
 .singlepost h1 {
@@ -3262,7 +3267,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .nav-menu li.current-menu-item a {
-        background: #2693BA;
+        background: #f49aa5;
     }
 
     .nav-menu li.current-menu-item ul li a {
@@ -3270,7 +3275,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .nav-menu li a:hover {
-        background: #2693BA;
+        background: #f49aa5;
     }
 
     .nav-menu li:hover a {
@@ -3367,7 +3372,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
     width: 34%;
     padding: 0px 0px 0px 20px;
-    background: #2980b9;
+    background: #f88a97;
     color: #fff;
     font-size: 20px;
 }
@@ -3432,11 +3437,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .searchtoggel a.dropdown-toggle:hover {
-    background: #2980b9;
+    background: #f88a97;
 }
 
 .searchtoggel:hover a.dropdown-toggle {
-    background: #2980b9;
+    background: #f88a97;
 }
 
 .searchtoggel:hover .dropdown-menu {
@@ -3458,7 +3463,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 300px;
     left: auto !important;
     border-radius: 3px;
-    border-bottom: 5px solid #2980b9;
+    border-bottom: 5px solid #f88a97;
 }
 
 #social i {
@@ -3779,7 +3784,11 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     clear: both;
 }
+.site-footer {
+     padding: 0 0 0 0!important;
 
-#colophon {
-    padding: 0 0 30px;
+}
+.site-footer p {
+    padding: 0 0 0 0!important;
+    margin: 0 0 0 0!important;
 }
