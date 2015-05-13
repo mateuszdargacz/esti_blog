@@ -71,7 +71,8 @@
                         {% editable page.get_content_model.content %}
                             {{ page.get_content_model.content|richtext_filters|safe }}
                         {% endeditable %}
-                        <a href="{{ blog_post.get_absolute_url }}" rel="bookmark">
+                        <br/>
+                        <a href="{{ blog_post.get_absolute_url }}" rel="bookmark" class="pull-right">
                                         czytaj więcej...
                         </a>
                     {% endif %}
