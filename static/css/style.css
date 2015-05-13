@@ -980,9 +980,8 @@ ul.nav-menu li:hover > ul,
 .entry-summary,
 .entry-meta {
     margin: 0 auto;
-    max-width: 604px;
-    width: 100%;
 }
+
 
 .sidebar .entry-header,
 .sidebar .entry-content,
@@ -1214,7 +1213,9 @@ footer ul > li {
     margin-right: 20px;
     padding: 0;
 }
-
+.post-content {
+    /*padding: 0 20px;*/
+}
 /* Mediaelements */
 .hentry .mejs-mediaelement,
 .hentry .mejs-container .mejs-controls {
@@ -2955,11 +2956,12 @@ h1, h2, h3, h4, h5, h6 {
 .entrypart .post-header {
     width: 94%;
     background: #fff;
-    padding: 0px 15px;
+    padding: 0px 15px 15px 15px;
     margin: -80px auto 0px auto;
     z-index: 9;
     min-height: 80px;
     position: relative;
+    border: solid 1px #f6f6f6;
 }
 
 .entrypart article p {
