@@ -47,7 +47,7 @@
                     {% editable blog_post.content %}
                         {{ blog_post.description_from_content|safe }}
                     {% endeditable %}
-                    <a href="{{ blog_post.get_absolute_url }}" rel="bookmark">
+                    <a href="{{ blog_post.get_absolute_url }}" rel="bookmark" class="pull-right">
                         czytaj więcej...
                     </a>
                 </div>
